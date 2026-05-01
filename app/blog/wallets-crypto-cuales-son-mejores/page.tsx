@@ -551,6 +551,9 @@ export default function Page() {
             <p className="mt-4">
               En <strong className="text-dorado">La Impresora</strong> seguimos de cerca las novedades
               en seguridad y herramientas de crypto para que tomes las mejores decisiones con tu dinero.
+              Una vez que tenés tu wallet configurada, el siguiente paso es entender{" "}
+              <Link href="/blog/que-es-defi-como-funciona" className="text-verde hover:underline">cómo usar DeFi para hacer rendir tus activos</Link>{" "}
+              y <Link href="/blog/como-funciona-el-dinero-crypto" className="text-verde hover:underline">todo sobre el ecosistema crypto para principiantes</Link>.
             </p>
           </section>
 

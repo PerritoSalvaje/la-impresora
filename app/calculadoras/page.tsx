@@ -41,6 +41,17 @@ const CALCULADORAS = [
     cta: "Descubrir mi perfil",
     stats: ["Quiz de 3 preguntas", "Distribución personalizada"],
   },
+  {
+    href: "/calculadoras/inflacion",
+    badge: "Inflación",
+    badgeClass: "badge-neutral",
+    titulo: "Calculadora de Inflación",
+    descripcion:
+      "¿Cuánto perdió tu dinero por la inflación? Ingresá tu país, monto y período para ver el impacto real — y cómo hubiera sido con Bitcoin o USDC.",
+    emoji: "📉",
+    cta: "Calcular pérdida real",
+    stats: ["6 países: ARG, MX, COL, ES, VE, USD", "Comparativa con BTC y USDC"],
+  },
 ];
 
 export default function CalculadorasHub() {

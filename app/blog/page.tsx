@@ -64,6 +64,42 @@ const posts = [
     fecha: "30 Abril 2026",
     tagColor: "bg-verde/10 text-verde border-verde/20",
   },
+  {
+    slug: "como-declarar-crypto-argentina",
+    numero: "008",
+    titulo: "Cómo declarar criptomonedas en Argentina 2026: guía completa ARCA",
+    desc: "Todo lo que necesitás saber para declarar tus crypto en Argentina: Bienes Personales, Ganancias, cómo valuar los activos, qué exchanges informan y qué pasa si no declarás.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
+  {
+    slug: "que-es-defi-como-funciona",
+    numero: "009",
+    titulo: "Qué es DeFi y cómo funciona: guía completa para principiantes en español",
+    desc: "Finanzas sin banco: qué es DeFi, cómo funciona Uniswap, Aave y Compound, cómo generar yield desde $50 y los riesgos reales que nadie te dice.",
+    tag: "DeFi",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-verde/10 text-verde border-verde/20",
+  },
+  {
+    slug: "bitcoin-halving-que-es",
+    numero: "010",
+    titulo: "Bitcoin Halving: qué es, cuándo ocurre y por qué importa para tu inversión",
+    desc: "La mecánica del halving explicada desde cero: historial de los 4 halvings con datos de precio, el halving de 2024 y cómo posicionarse inteligentemente en el ciclo actual.",
+    tag: "Bitcoin",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
+  {
+    slug: "wallets-crypto-cuales-son-mejores",
+    numero: "011",
+    titulo: "Las mejores wallets de crypto en 2026: guía completa para LATAM",
+    desc: "MetaMask vs Trust Wallet vs Ledger vs Trezor: cuándo usar cada una, cómo proteger tu seed phrase y los errores fatales que cuestan fortunas. La guía definitiva.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
 ];
 
 export default function BlogPage() {

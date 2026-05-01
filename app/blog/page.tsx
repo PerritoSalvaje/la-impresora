@@ -151,6 +151,36 @@ const posts = [
     tagClass: "badge badge-dorado",
     categoria: "Crypto",
   },
+  {
+    slug: "mejores-wallets-crypto-2026",
+    numero: "016",
+    titulo: "Las mejores wallets de crypto en 2026: guía completa y comparativa",
+    desc: "MetaMask, Phantom, Trust Wallet, Ledger Nano X, Trezor y Tangem. Precios, pros, contras y cuál elegir según tu situación. Con links de compra.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagClass: "badge badge-dorado",
+    categoria: "Crypto",
+  },
+  {
+    slug: "mejores-exchanges-crypto-2026",
+    numero: "017",
+    titulo: "Los mejores exchanges de crypto en 2026: ranking completo para hispanohablantes",
+    desc: "Bybit, Binance, Bitget, OKX, Kraken + Bitso, Lemon Cash y Buda. Tabla comparativa de fees, KYC y cuál usar según tu país.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagClass: "badge badge-dorado",
+    categoria: "Crypto",
+  },
+  {
+    slug: "mejores-herramientas-trading-2026",
+    numero: "018",
+    titulo: "Las mejores herramientas para hacer trading de crypto en 2026",
+    desc: "TradingView, Glassnode, Nansen, CryptoQuant, Delta, CoinStats y Koinly para impuestos. La caja de herramientas completa del trader crypto.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagClass: "badge badge-dorado",
+    categoria: "Crypto",
+  },
 ];
 
 const categorias = ["Todos", "Crypto", "AI", "Tokenización", "Libertad Financiera"];

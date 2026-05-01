@@ -84,6 +84,9 @@ export default function Page() {
             <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
               Qué es la blockchain: la explicación que sí se entiende
             </h2>
+
+            <ArticleCTA />
+
             <p>
               La blockchain es el libro de contabilidad donde queda registrada cada transacción de
               criptomonedas. Pero a diferencia del libro de un banco, este no está en un solo servidor
@@ -589,7 +592,9 @@ export default function Page() {
             <p className="mt-4">
               Para eso existe <strong className="text-dorado">La Impresora</strong>: cada semana te
               mandamos lo que necesitás saber sobre crypto en LATAM. Sin teoría vacía, sin predicciones
-              de precio, sin shitcoins. Solo lo que sirve.
+              de precio, sin shitcoins. Solo lo que sirve. Para el próximo paso, mirá
+              nuestra <Link href="/blog/wallets-crypto-cuales-son-mejores" className="text-verde hover:underline">guía de wallets crypto</Link> y
+              aprendé <Link href="/blog/que-es-defi-como-funciona" className="text-verde hover:underline">cómo funciona DeFi para hacer rendir tus stablecoins</Link>.
             </p>
           </section>
 

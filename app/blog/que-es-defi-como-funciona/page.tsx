@@ -86,6 +86,9 @@ export default function Page() {
             <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
               Banco tradicional vs DeFi: la comparación que lo explica todo
             </h2>
+
+            <ArticleCTA />
+
             <p>
               Para entender DeFi, lo más útil es compararlo punto a punto con el sistema bancario
               tradicional. No para decir que uno es mejor en todo — cada uno tiene sus ventajas —
@@ -459,6 +462,8 @@ export default function Page() {
             <p className="mt-4">
               En <strong className="text-dorado">La Impresora</strong> cubrimos las novedades de DeFi
               que importan en LATAM. Cada semana, sin jerga innecesaria y con contexto real.
+              Para empezar bien, leé cómo <Link href="/blog/stablecoins-latam" className="text-verde hover:underline">las stablecoins son la base de cualquier estrategia DeFi</Link>{" "}
+              y cómo <Link href="/blog/portafolio-cripto-500" className="text-verde hover:underline">armar tu primer portafolio cripto con $500</Link>.
             </p>
           </section>
 

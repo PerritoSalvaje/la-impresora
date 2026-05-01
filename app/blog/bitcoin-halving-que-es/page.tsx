@@ -112,6 +112,9 @@ export default function Page() {
             <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
               El historial de los 4 halvings: qué pasó con el precio en cada uno
             </h2>
+
+            <ArticleCTA />
+
             <p>
               Bitcoin tuvo cuatro halvings hasta 2026. Los patrones de precio en cada ciclo son
               notablemente similares, aunque con diferencias importantes que hay que entender antes
@@ -470,6 +473,8 @@ export default function Page() {
               En <strong className="text-dorado">La Impresora</strong> seguimos los ciclos de Bitcoin
               y las tendencias del mercado crypto para darte el contexto que necesitás para tomar
               decisiones informadas. Cada jueves, sin predicciones de precio y con datos reales.
+              Si estás empezando, primero entendé <Link href="/blog/como-funciona-el-dinero-crypto" className="text-verde hover:underline">cómo funciona el dinero crypto</Link>{" "}
+              y cómo <Link href="/blog/portafolio-cripto-500" className="text-verde hover:underline">armar un portafolio cripto desde $500</Link> antes del próximo ciclo.
             </p>
           </section>
 

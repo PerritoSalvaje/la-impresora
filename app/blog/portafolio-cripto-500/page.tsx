@@ -38,6 +38,8 @@ export default function PortafolioCripto500() {
 
           <h2 className="text-2xl font-black text-white">La distribución recomendada para $500</h2>
 
+          <ArticleCTA />
+
           <div className="gradient-border rounded-2xl p-6 my-8">
             <div className="space-y-4">
               {[
@@ -108,6 +110,11 @@ export default function PortafolioCripto500() {
           </p>
           <p className="text-verde font-bold">
             El mejor portafolio no es el que maximiza el retorno en papel. Es el que te permite dormir bien y seguir aprendiendo. Con $500, podés construir exactamente eso.
+          </p>
+          <p>
+            Para el siguiente nivel, aprendé a elegir
+            las <Link href="/blog/wallets-crypto-cuales-son-mejores" className="text-verde hover:underline">mejores wallets para custodiar tu portafolio</Link>{" "}
+            y entendé <Link href="/blog/stablecoins-latam" className="text-verde hover:underline">cómo las stablecoins protegen tu capital</Link> durante la volatilidad.
           </p>
         </div>
 

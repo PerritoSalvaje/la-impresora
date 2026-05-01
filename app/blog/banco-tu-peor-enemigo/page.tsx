@@ -100,6 +100,8 @@ export default function EdicionBancoEnemigo() {
 
           <h2 className="text-2xl font-black text-white mt-10 mb-4">¿Por qué seguimos usando bancos?</h2>
 
+          <ArticleCTA />
+
           <p className="text-white/70 leading-relaxed mb-5">
             Porque durante décadas no habia alternativa real. Tenias que cobrar en banco,
             pagar impuestos por banco, recibir tu sueldo en banco. El sistema estaba diseñado
@@ -137,7 +139,9 @@ export default function EdicionBancoEnemigo() {
           <p className="text-white/70 leading-relaxed mb-8">
             No es para hacerse rico de golpe. Es para dejar de hacerse pobre de a poco.
             La diferencia entre alguien que entiende esto y alguien que no,
-            en diez años, es enorme.
+            en diez años, es enorme. Si querés entender mejor cómo funcionan las stablecoins y DeFi,
+            leé nuestra guía de <Link href="/blog/stablecoins-latam" className="text-verde hover:underline">stablecoins en LATAM</Link> y la
+            explicación completa de <Link href="/blog/que-es-defi-como-funciona" className="text-verde hover:underline">cómo funciona DeFi para principiantes</Link>.
           </p>
 
         </article>

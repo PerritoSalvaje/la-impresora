@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     languages: {
       "es-AR": BASE_URL,
     },
+    types: {
+      "application/rss+xml": `${BASE_URL}/feed.xml`,
+    },
   },
   openGraph: {
     title: "La Impresora — Aprendé a imprimir tu propia plata",
@@ -97,6 +100,8 @@ const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     url: `${BASE_URL}/logo.png`,
+    width: 512,
+    height: 512,
   },
   description:
     "Newsletter semanal sobre crypto, AI, tokenización y libertad financiera para LATAM. Sin bullshit.",
@@ -113,6 +118,47 @@ const organizationSchema = {
     "DeFi",
     "Libertad financiera",
   ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "hola@laimpresora.io",
+    contactType: "customer support",
+    availableLanguage: "Spanish",
+  },
+  founder: {
+    "@type": "Person",
+    name: "La Impresora",
+    url: BASE_URL,
+  },
+};
+
+const newsMediaOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  name: "La Impresora",
+  url: BASE_URL,
+  logo: {
+    "@type": "ImageObject",
+    url: `${BASE_URL}/logo.png`,
+    width: 512,
+    height: 512,
+  },
+  description:
+    "Medio de comunicación digital especializado en crypto, inteligencia artificial, tokenización y libertad financiera para América Latina.",
+  sameAs: [
+    "https://twitter.com/laimpresora_io",
+    "https://instagram.com/laimpresora.io",
+  ],
+  publishingPrinciples: `${BASE_URL}/nosotros`,
+  missionCoveragePrioritiesPolicy: `${BASE_URL}/nosotros`,
+  masthead: `${BASE_URL}/nosotros`,
+  diversityPolicy: `${BASE_URL}/nosotros`,
+  ethicsPolicy: `${BASE_URL}/nosotros`,
+  actionableFeedbackPolicy: `${BASE_URL}/nosotros`,
+  correctionsPolicy: `${BASE_URL}/nosotros`,
+  noBylinesPolicy: `${BASE_URL}/nosotros`,
+  verificationFactCheckingPolicy: `${BASE_URL}/nosotros`,
+  foundingDate: "2023",
+  areaServed: ["AR", "MX", "CO", "CL", "UY", "PY"],
 };
 
 const websiteSchema = {
@@ -147,6 +193,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(newsMediaOrganizationSchema) }}
         />
       </head>
       <body className="bg-oscuro text-white antialiased">

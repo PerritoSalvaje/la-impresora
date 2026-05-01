@@ -220,6 +220,9 @@ export default function Page() {
             <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
               El stack de AI para freelancers según tu perfil
             </h2>
+
+            <ArticleCTA />
+
             <p>
               No necesitás las 8. Según lo que hacés, este es el stack mínimo que maximiza el ROI:
             </p>
@@ -425,7 +428,9 @@ export default function Page() {
             <p className="mt-4">
               En <strong className="text-verde">La Impresora</strong> cubrimos cada semana las herramientas
               que están generando ingresos reales en LATAM, con casos concretos y sin teoría vacía.
-              Gratis, cada jueves.
+              Gratis, cada jueves. Y si querés combinar AI con crypto, leé sobre
+              el <Link href="/blog/gap-ai-oportunidad" className="text-verde hover:underline">gap de oportunidad de la AI en LATAM</Link> y
+              cómo <Link href="/blog/como-funciona-el-dinero-crypto" className="text-verde hover:underline">empezar con dinero crypto desde cero</Link>.
             </p>
           </section>
 

@@ -228,7 +228,8 @@ export default function EdicionGapAI() {
                 <p>
                   La pregunta no es si la AI va a cambiar tu trabajo. Ya lo está cambiando.
                   La pregunta es si vas a ser de los que lo usaron para ganar o de los que
-                  "esperaban a ver qué pasaba".
+                  "esperaban a ver qué pasaba". Y mientras resolvés eso, el sistema financiero tradicional
+                  sigue extrayendo valor de tus ahorros: entendé <Link href="/blog/banco-tu-peor-enemigo" className="text-verde hover:underline">por qué tu banco es tu peor enemigo financiero</Link>.
                 </p>
 
               </div>

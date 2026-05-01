@@ -19,6 +19,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.9,
   },
   {
+    url: `${BASE_URL}/empeza`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: `${BASE_URL}/nosotros`,
     lastModified: new Date(),
     changeFrequency: "monthly",
@@ -48,6 +54,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
     changeFrequency: "monthly",
     priority: 0.7,
   },
+  // Comparativas hub + páginas individuales (prioridad 0.85)
   {
     url: `${BASE_URL}/comparativas`,
     lastModified: new Date(),
@@ -67,6 +74,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.85,
   },
   {
+    url: `${BASE_URL}/comparativas/bitcoin-vs-oro`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: `${BASE_URL}/comparativas/defi-vs-banco`,
     lastModified: new Date(),
     changeFrequency: "monthly",
@@ -77,6 +90,81 @@ const staticRoutes: MetadataRoute.Sitemap = [
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/solana-vs-ethereum`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/usdc-vs-usdt`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  // Calculadoras hub + páginas individuales (prioridad 0.80)
+  {
+    url: `${BASE_URL}/calculadoras`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/calculadoras/dca`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/calculadoras/inflacion`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/calculadoras/portafolio`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    url: `${BASE_URL}/calculadoras/yield-defi`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  // Hubs de verticales (prioridad 0.75)
+  {
+    url: `${BASE_URL}/fraudes`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    url: `${BASE_URL}/nomadas`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    url: `${BASE_URL}/geopolitica`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  {
+    url: `${BASE_URL}/psicologia-dinero`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  },
+  // RSS feed
+  {
+    url: `${BASE_URL}/feed.xml`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.5,
   },
   {
     url: `${BASE_URL}/afiliados`,

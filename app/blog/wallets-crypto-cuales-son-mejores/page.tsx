@@ -90,6 +90,9 @@ export default function Page() {
             <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
               Hot vs Cold wallets: la diferencia que define tu seguridad
             </h2>
+
+            <ArticleCTA />
+
             <p>
               La clasificación más importante en wallets crypto es hot vs cold. No tiene que ver con
               temperatura — tiene que ver con conectividad a internet.

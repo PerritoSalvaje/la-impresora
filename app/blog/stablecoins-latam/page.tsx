@@ -35,6 +35,9 @@ export default function StablecoinsLatam() {
           </p>
 
           <h2 className="text-2xl font-black text-white">Las stablecoins que importan (y las que no)</h2>
+
+          <ArticleCTA />
+
           <p>No todas las stablecoins son iguales. Hay tres categorías que tenés que entender:</p>
 
           <h3 className="text-xl font-bold text-verde">1. Respaldadas por dólares reales (las más seguras)</h3>
@@ -95,6 +98,11 @@ export default function StablecoinsLatam() {
           </p>
           <p className="text-verde font-bold">
             El sistema financiero en LATAM no está diseñado para protegerte de la inflación. Las stablecoins sí. No es una solución perfecta, pero es la mejor herramienta práctica que existe hoy.
+          </p>
+          <p>
+            Para entender mejor el ecosistema, leé nuestra guía de{" "}
+            <Link href="/blog/que-es-defi-como-funciona" className="text-verde hover:underline">qué es DeFi y cómo funciona</Link>{" "}
+            y cómo <Link href="/blog/portafolio-cripto-500" className="text-verde hover:underline">armar un portafolio cripto con $500</Link> usando stablecoins como base.
           </p>
         </div>
 

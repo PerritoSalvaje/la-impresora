@@ -102,6 +102,8 @@ export default function EdicionTokenizacion() {
 
           <h2 className="text-2xl font-black text-white mt-10 mb-4">¿Por qué tierra en LATAM?</h2>
 
+          <ArticleCTA />
+
           <p className="text-white/70 leading-relaxed mb-5">
             Porque la tierra productiva en América del Sur es de las inversiones mas sólidas del mundo.
             Paraguay, por ejemplo, es el cuarto exportador mundial de soja y el tercer exportador de carne bovina.
@@ -143,6 +145,8 @@ export default function EdicionTokenizacion() {
             Diversificá entre distintos activos y plataformas.
             Y entrá a aprender, no solo a ganar: el que entiende el mecanismo
             va a saber reconocer las buenas oportunidades cuando escalen.
+            Para el paso previo, asegurate de entender <Link href="/blog/como-funciona-el-dinero-crypto" className="text-verde hover:underline">cómo funciona el dinero crypto</Link> y
+            cómo elegir las mejores <Link href="/blog/wallets-crypto-cuales-son-mejores" className="text-verde hover:underline">wallets para guardar tus activos</Link>.
           </p>
 
         </article>

@@ -565,6 +565,107 @@ export default function Page() {
           </div>
         </div>
 
+        {/* FAQ Section con schema FAQPage */}
+        <div className="mt-16 pt-12 border-t border-white/10">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: "¿Necesito comprar un Bitcoin entero?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "No. Bitcoin es divisible hasta 8 decimales. La unidad mínima se llama satoshi (0.00000001 BTC). Podés comprar desde $1 USD o $1,000 ARS en cualquier exchange. No necesitás comprar un Bitcoin completo para participar.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "¿Bitcoin es lo mismo que blockchain?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "No. Blockchain es la tecnología subyacente: una base de datos distribuida e inmutable. Bitcoin fue la primera aplicación masiva de esta tecnología para crear dinero digital. Hoy existen miles de blockchains distintas (Ethereum, Solana, etc.), pero Bitcoin fue la primera y sigue siendo la más segura y descentralizada.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "¿Qué es una seed phrase y por qué es tan importante?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Una seed phrase (frase semilla) es un conjunto de 12 o 24 palabras en inglés que sirve como clave maestra de tu wallet. Con esas palabras cualquiera puede acceder a tus fondos desde cualquier dispositivo. Si la perdés, perdés tus crypto para siempre. Si alguien más la obtiene, puede robarte todo. Guardala offline, en papel, en un lugar seguro. Nunca la compartas digitalmente.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "¿Bitcoin consume demasiada energía?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "El consumo energético de Bitcoin es real y polémico. La red consume aproximadamente 120-150 TWh anuales, comparable a países como Argentina. Sin embargo, una proporción creciente (más del 50%) proviene de fuentes renovables. El debate real es si el beneficio de tener un sistema financiero global descentralizado justifica ese costo energético — y es una pregunta legítima sin respuesta única.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "¿Se puede hackear Bitcoin?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "La red Bitcoin en sí no ha sido hackeada en 15 años de operación. Un ataque exitoso requeriría controlar más del 51% del poder computacional de la red (costo estimado: miles de millones de dólares). Lo que sí se hackean son los exchanges y las wallets de usuarios con mala seguridad. Por eso la regla 'not your keys, not your coins': si controlás tus claves privadas, nadie puede hackear tu Bitcoin.",
+                    },
+                  },
+                ],
+              }),
+            }}
+          />
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-6">
+            Preguntas frecuentes sobre Bitcoin
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "¿Necesito comprar un Bitcoin entero?",
+                a: "No. Bitcoin es divisible hasta 8 decimales. La unidad mínima se llama satoshi (0.00000001 BTC). Podés comprar desde $1 USD o $1,000 ARS en cualquier exchange. No necesitás comprar un Bitcoin completo para participar.",
+              },
+              {
+                q: "¿Bitcoin es lo mismo que blockchain?",
+                a: "No. Blockchain es la tecnología subyacente: una base de datos distribuida e inmutable. Bitcoin fue la primera aplicación masiva de esta tecnología para crear dinero digital. Hoy existen miles de blockchains distintas (Ethereum, Solana, etc.), pero Bitcoin fue la primera y sigue siendo la más segura y descentralizada.",
+              },
+              {
+                q: "¿Qué es una seed phrase y por qué es tan importante?",
+                a: "Una seed phrase (frase semilla) es un conjunto de 12 o 24 palabras en inglés que sirve como clave maestra de tu wallet. Con esas palabras cualquiera puede acceder a tus fondos desde cualquier dispositivo. Si la perdés, perdés tus crypto para siempre. Si alguien más la obtiene, puede robarte todo. Guardala offline, en papel, en un lugar seguro. Nunca la compartas digitalmente.",
+              },
+              {
+                q: "¿Bitcoin consume demasiada energía?",
+                a: "El consumo energético de Bitcoin es real y polémico. La red consume aproximadamente 120-150 TWh anuales, comparable a países como Argentina. Sin embargo, una proporción creciente (más del 50%) proviene de fuentes renovables. El debate real es si el beneficio de tener un sistema financiero global descentralizado justifica ese costo energético — y es una pregunta legítima sin respuesta única.",
+              },
+              {
+                q: "¿Se puede hackear Bitcoin?",
+                a: "La red Bitcoin en sí no ha sido hackeada en 15 años de operación. Un ataque exitoso requeriría controlar más del 51% del poder computacional de la red (costo estimado: miles de millones de dólares). Lo que sí se hackean son los exchanges y las wallets de usuarios con mala seguridad. Por eso la regla 'not your keys, not your coins': si controlás tus claves privadas, nadie puede hackear tu Bitcoin.",
+              },
+            ].map((faq, i) => (
+              <details
+                key={i}
+                className="group bg-gris-medio rounded-xl border border-white/5 hover:border-dorado/20 transition-colors"
+              >
+                <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none">
+                  <span className="text-white font-bold text-base leading-snug">
+                    {faq.q}
+                  </span>
+                  <span className="text-dorado text-xl shrink-0 transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <div className="px-5 pb-5">
+                  <p className="text-white/55 text-base leading-relaxed border-t border-white/5 pt-4">
+                    {faq.a}
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+
       </div>
 
       <div className="mt-24">

@@ -327,7 +327,7 @@ export default function RecursosPage() {
                         {item.tag}
                       </span>
                       <span className={`text-sm font-bold ${item.gratis ? "text-verde" : "text-white/40"}`}>
-                        {item.gratis ? "Gratis" : item.precio || "Pago"}
+                        {item.gratis ? "Gratis" : ("precio" in item && item.precio) ? (item as any).precio : "Pago"}
                       </span>
                     </div>
                   </a>

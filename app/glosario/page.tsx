@@ -1,8 +1,6 @@
-export const metadata = {
-  title: "Glosario de Crypto, AI y Finanzas Digitales — La Impresora",
-  description:
-    "40+ términos de crypto, AI y finanzas digitales explicados en lenguaje simple para LATAM. Sin jerga innecesaria, con ejemplos prácticos.",
-};
+"use client";
+
+import { useState, useMemo } from "react";
 
 type Termino = {
   termino: string;
@@ -228,7 +226,7 @@ const terminos: Termino[] = [
     definicion:
       "Mecanismo de consenso donde los validadores deben 'apostar' (hacer staking) de tokens como garantía para validar transacciones. Consume mucha menos energía que Proof of Work. Ethereum migró a PoS en 2022 en 'The Merge', reduciendo su consumo energético en ~99.95%.",
     ejemplo:
-      "Ejemplo: Para ser validador en Ethereum necesitás depositar 32 ETH como garantía. Si actúas maliciosamente, perdés parte de ese depósito.",
+      "Ejemplo: Para ser validador en Ethereum necesitás depositar 32 ETH como garantía. Si actúás maliciosamente, perdés parte de ese depósito.",
     tag: "P",
     tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
   },
@@ -393,10 +391,30 @@ const terminos: Termino[] = [
   },
 ];
 
-// Agrupar por letra inicial
-const letras = Array.from(new Set(terminos.map((t) => t.tag || t.termino[0]))).sort();
-
 export default function GlosarioPage() {
+  const [query, setQuery] = useState("");
+
+  const terminosFiltrados = useMemo(() => {
+    if (!query.trim()) return terminos;
+    const q = query.toLowerCase().trim();
+    return terminos.filter(
+      (t) =>
+        t.termino.toLowerCase().includes(q) ||
+        t.definicion.toLowerCase().includes(q) ||
+        (t.ejemplo && t.ejemplo.toLowerCase().includes(q))
+    );
+  }, [query]);
+
+  const letras = useMemo(
+    () =>
+      Array.from(
+        new Set(terminosFiltrados.map((t) => t.tag || t.termino[0]))
+      ).sort(),
+    [terminosFiltrados]
+  );
+
+  const mostrandoTodos = !query.trim();
+
   return (
     <div className="pt-24 min-h-screen">
       {/* Hero */}
@@ -416,75 +434,132 @@ export default function GlosarioPage() {
         </div>
       </section>
 
-      {/* Índice de letras */}
+      {/* Buscador */}
       <section className="px-6 pb-8">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2">
-            {letras.map((letra) => (
-              <a
-                key={letra}
-                href={`#letra-${letra}`}
-                className="w-9 h-9 flex items-center justify-center rounded-lg bg-gris-medio border border-white/10 text-sm font-black hover:border-verde hover:text-verde transition-colors"
+          <div className="relative mb-8">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <svg className="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Buscar un término... (ej: stablecoin, DeFi, FOMO)"
+              className="w-full pl-12 pr-4 py-4 rounded-2xl text-base focus:outline-none transition-colors"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.09)",
+                color: "#f0f0ef",
+              }}
+              onFocus={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor = "rgba(0,230,118,0.35)")
+              }
+              onBlur={(e) =>
+                ((e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.09)")
+              }
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                className="absolute inset-y-0 right-4 flex items-center text-white/30 hover:text-white/60 transition-colors"
+                aria-label="Limpiar búsqueda"
               >
-                {letra}
-              </a>
-            ))}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
           </div>
+
+          {/* Índice de letras — solo cuando no hay búsqueda activa */}
+          {mostrandoTodos && (
+            <div className="flex flex-wrap justify-center gap-2">
+              {letras.map((letra) => (
+                <a
+                  key={letra}
+                  href={`#letra-${letra}`}
+                  className="w-9 h-9 flex items-center justify-center rounded-lg bg-gris-medio border border-white/10 text-sm font-black hover:border-verde hover:text-verde transition-colors"
+                >
+                  {letra}
+                </a>
+              ))}
+            </div>
+          )}
+
+          {/* Contador de resultados cuando hay búsqueda */}
+          {!mostrandoTodos && (
+            <div className="text-center">
+              <span className="text-white/30 text-sm">
+                {terminosFiltrados.length > 0
+                  ? `${terminosFiltrados.length} resultado${terminosFiltrados.length !== 1 ? "s" : ""} para "${query}"`
+                  : ""}
+              </span>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Términos */}
       <section className="px-6 pb-24">
-        <div className="max-w-4xl mx-auto space-y-16">
-          {letras.map((letra) => {
-            const grupo = terminos.filter((t) => (t.tag || t.termino[0]) === letra);
-            return (
-              <div key={letra} id={`letra-${letra}`}>
-                {/* Separador de letra */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 rounded-2xl bg-gris-medio border border-white/10 flex items-center justify-center text-2xl font-black text-verde">
-                    {letra}
-                  </div>
-                  <div className="flex-1 h-px bg-white/5" />
-                </div>
-
-                {/* Términos de esa letra */}
-                <div className="space-y-4">
-                  {grupo.map((t) => (
-                    <div key={t.termino} className="gradient-border rounded-2xl overflow-hidden">
-                      <div className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="flex-1">
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                              <h2 className="text-lg font-black text-white">{t.termino}</h2>
-                              {t.tagColor && (
-                                <span
-                                  className={`text-xs font-bold px-2 py-0.5 rounded-full border ${t.tagColor}`}
-                                >
-                                  {t.tag}
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-white/60 text-sm leading-relaxed mb-3">
-                              {t.definicion}
-                            </p>
-                            {t.ejemplo && (
-                              <div className="flex gap-2 mt-2">
-                                <span className="text-verde text-xs font-bold shrink-0 mt-0.5">→</span>
-                                <p className="text-white/35 text-xs leading-relaxed italic">
-                                  {t.ejemplo}
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+        <div className="max-w-4xl mx-auto">
+          {terminosFiltrados.length === 0 ? (
+            /* Estado vacío */
+            <div className="text-center py-20">
+              <div className="text-5xl mb-6">🔍</div>
+              <h3 className="text-2xl font-black mb-3 text-white">
+                No encontramos ese término.
+              </h3>
+              <p className="text-white/40 mb-8 text-lg">
+                ¿Querés que lo agreguemos?
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => setQuery("")}
+                  className="bg-verde text-oscuro font-black px-8 py-3 rounded-full hover:bg-verde/90 transition-colors verde-glow text-sm"
+                >
+                  Ver todos los términos
+                </button>
+                <a
+                  href="mailto:hola@laimpresora.io?subject=Término%20para%20el%20glosario"
+                  className="border border-white/10 text-white/50 font-semibold px-8 py-3 rounded-full hover:border-verde/30 hover:text-verde transition-colors text-sm"
+                >
+                  Sugerir un término →
+                </a>
               </div>
-            );
-          })}
+            </div>
+          ) : mostrandoTodos ? (
+            /* Vista agrupada por letra */
+            <div className="space-y-16">
+              {letras.map((letra) => {
+                const grupo = terminosFiltrados.filter((t) => (t.tag || t.termino[0]) === letra);
+                return (
+                  <div key={letra} id={`letra-${letra}`}>
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-14 h-14 rounded-2xl bg-gris-medio border border-white/10 flex items-center justify-center text-2xl font-black text-verde">
+                        {letra}
+                      </div>
+                      <div className="flex-1 h-px bg-white/5" />
+                    </div>
+                    <div className="space-y-4">
+                      {grupo.map((t) => (
+                        <TerminoCard key={t.termino} t={t} />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            /* Vista plana cuando hay búsqueda activa */
+            <div className="space-y-4">
+              {terminosFiltrados.map((t) => (
+                <TerminoCard key={t.termino} t={t} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -513,6 +588,40 @@ export default function GlosarioPage() {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function TerminoCard({ t }: { t: Termino }) {
+  return (
+    <div className="gradient-border rounded-2xl overflow-hidden">
+      <div className="p-6">
+        <div className="flex items-start gap-4">
+          <div className="flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <h2 className="text-lg font-black text-white">{t.termino}</h2>
+              {t.tagColor && (
+                <span
+                  className={`text-xs font-bold px-2 py-0.5 rounded-full border ${t.tagColor}`}
+                >
+                  {t.tag}
+                </span>
+              )}
+            </div>
+            <p className="text-white/60 text-sm leading-relaxed mb-3">
+              {t.definicion}
+            </p>
+            {t.ejemplo && (
+              <div className="flex gap-2 mt-2">
+                <span className="text-verde text-xs font-bold shrink-0 mt-0.5">→</span>
+                <p className="text-white/35 text-xs leading-relaxed italic">
+                  {t.ejemplo}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

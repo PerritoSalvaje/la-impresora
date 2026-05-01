@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
 
+const BULLETS = [
+  { icon: "✦", text: "Gratis" },
+  { icon: "✦", text: "Cada jueves" },
+  { icon: "✦", text: "Sin spam" },
+];
+
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -28,72 +34,128 @@ export default function Newsletter() {
 
   return (
     <section id="newsletter" className="py-24 px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="inline-block bg-verde/10 border border-verde/20 text-verde text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
-          Newsletter Gratuito
-        </div>
+      <div className="max-w-xl mx-auto">
+        <div
+          className="rounded-2xl p-8 md:p-10"
+          style={{
+            background: "#111213",
+            border: "1px solid rgba(255,255,255,0.07)",
+          }}
+        >
+          {/* Badge */}
+          <span className="badge badge-verde mb-6 inline-flex">
+            Newsletter gratuito
+          </span>
 
-        <h2 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-          La edición de esta semana<br />
-          <span className="text-verde verde-text-glow">ya está esperándote</span>
-        </h2>
+          {/* Headline */}
+          <h2
+            className="font-display font-bold text-2xl md:text-3xl leading-tight mb-3"
+            style={{ color: "#f0f0ef", letterSpacing: "-0.02em" }}
+          >
+            El análisis que no encontrás en ningún otro lado.
+          </h2>
 
-        <p className="text-white/50 text-lg mb-6">
-          Cada jueves: 1 tema que te va a cambiar cómo pensás el dinero,
-          3 noticias que importan y 1 oportunidad concreta. Sin spam.
-        </p>
+          {/* Subline */}
+          <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(240,240,239,0.5)" }}>
+            Cada jueves: un análisis profundo sobre cripto, finanzas e inversiones.
+            Sin clickbait, sin conflicto de interés.
+          </p>
 
-        {/* Contador social */}
-        <div className="inline-flex items-center gap-2 bg-verde/5 border border-verde/15 rounded-full px-5 py-2 mb-8">
-          <span className="text-lg">🖨️</span>
-          <span className="text-verde font-bold text-sm">2,412 personas</span>
-          <span className="text-white/40 text-sm">ya están imprimiendo</span>
-        </div>
-
-        {/* Bullets de beneficios */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-8">
-          {["Gratis para siempre", "Un email por semana", "Cancela cuando quieras"].map((b) => (
-            <span key={b} className="flex items-center gap-1.5 text-white/60 text-sm">
-              <span className="text-verde font-bold">✓</span>
-              {b}
-            </span>
-          ))}
-        </div>
-
-        {status === "success" ? (
-          <div className="bg-verde/10 border border-verde/30 rounded-2xl p-8">
-            <p className="text-verde text-xl font-bold">¡Estás dentro! 🖨️</p>
-            <p className="text-white/50 mt-2">Revisá tu email para confirmar la suscripción.</p>
-          </div>
-        ) : (
-          <>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="tu@email.com"
-                required
-                className="flex-1 bg-gris-medio border border-white/10 rounded-full px-6 py-4 text-white placeholder-white/30 focus:outline-none focus:border-verde transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="bg-verde text-oscuro font-black px-8 py-4 rounded-full hover:bg-verde/90 transition-all disabled:opacity-50 whitespace-nowrap verde-glow"
+          {/* Bullets */}
+          <div className="flex flex-wrap gap-4 mb-7">
+            {BULLETS.map(({ icon, text }) => (
+              <span
+                key={text}
+                className="flex items-center gap-1.5 text-sm"
+                style={{ color: "rgba(240,240,239,0.55)" }}
               >
-                {status === "loading" ? "..." : "Quiero entrar →"}
-              </button>
-            </form>
+                <span style={{ color: "#00e676", fontSize: "9px" }}>{icon}</span>
+                {text}
+              </span>
+            ))}
+          </div>
 
-            <p className="text-white/25 text-xs mt-4">
-              Sin spam. Sin venta de datos. Cancelas con un click.
-            </p>
-          </>
-        )}
+          {/* Form / success */}
+          {status === "success" ? (
+            <div
+              className="rounded-xl px-5 py-4"
+              style={{
+                background: "rgba(0,230,118,0.05)",
+                border: "1px solid rgba(0,230,118,0.15)",
+              }}
+            >
+              <p className="text-sm font-semibold" style={{ color: "#00e676" }}>
+                Listo, estás dentro.
+              </p>
+              <p className="text-sm mt-1" style={{ color: "rgba(240,240,239,0.45)" }}>
+                Revisá tu email para confirmar la suscripción.
+              </p>
+            </div>
+          ) : (
+            <>
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-2"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="tu@email.com"
+                  required
+                  className="flex-1 text-sm px-4 py-3 rounded-[10px] focus:outline-none transition-colors"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.09)",
+                    color: "#f0f0ef",
+                  }}
+                  onFocus={(e) =>
+                    ((e.currentTarget as HTMLElement).style.borderColor =
+                      "rgba(0,230,118,0.3)")
+                  }
+                  onBlur={(e) =>
+                    ((e.currentTarget as HTMLElement).style.borderColor =
+                      "rgba(255,255,255,0.09)")
+                  }
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="btn-primary whitespace-nowrap"
+                  style={{
+                    padding: "12px 20px",
+                    fontSize: "13px",
+                    borderRadius: "10px",
+                    opacity: status === "loading" ? 0.6 : 1,
+                  }}
+                >
+                  {status === "loading" ? "Enviando..." : "Suscribirme →"}
+                </button>
+              </form>
 
-        {status === "error" && (
-          <p className="text-red-400 text-sm mt-3">Algo salió mal. Intentá de nuevo.</p>
-        )}
+              {status === "error" && (
+                <p className="text-xs mt-2" style={{ color: "#f87171" }}>
+                  Algo salió mal. Intentá de nuevo.
+                </p>
+              )}
+            </>
+          )}
+
+          {/* Social proof */}
+          <div className="flex items-center gap-2 mt-5">
+            <span
+              className="inline-block w-2 h-2 rounded-full"
+              style={{
+                background: "#00e676",
+                animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+              }}
+              aria-hidden="true"
+            />
+            <span className="text-xs" style={{ color: "rgba(240,240,239,0.35)" }}>
+              2,412 lectores activos
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

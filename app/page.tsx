@@ -71,6 +71,67 @@ const verticales = [
     desc: "MiCA en Europa, nuevas leyes crypto, impuestos y cumplimiento en el mundo hispanohablante.",
     color: "text-verde",
   },
+  // ── Los 10 pochocleros ──────────────────────────────────────────
+  {
+    icon: "💀",
+    title: "Fraudes & Rug Pulls",
+    desc: "FTX, Luna, OneCoin. Autopsia de los grandes fraudes para que nunca te pase a vos.",
+    color: "text-red-400",
+  },
+  {
+    icon: "🧠",
+    title: "Psicología del Dinero",
+    desc: "FOMO, bias cognitivo, por qué todos vendemos en el peor momento. Tu cerebro es tu peor enemigo financiero.",
+    color: "text-purple-400",
+  },
+  {
+    icon: "🌍",
+    title: "Geopolítica & Economía",
+    desc: "Guerras, sanciones, BRICS vs Occidente. Por qué la geopolítica mueve los mercados más que cualquier indicador.",
+    color: "text-dorado",
+  },
+  {
+    icon: "✈️",
+    title: "Nómadas Digitales & FIRE",
+    desc: "Vivir en cualquier parte del mundo, retirarse joven, independencia financiera real. El manual que no te enseñaron.",
+    color: "text-verde",
+  },
+  {
+    icon: "🎤",
+    title: "Dinero en el Deporte & Entretenimiento",
+    desc: "Contratos de futbolistas, NFTs de artistas, cuánto gana Bad Bunny. Pop culture con análisis financiero.",
+    color: "text-blue-400",
+  },
+  {
+    icon: "🏆",
+    title: "Millonarios & Casos Reales",
+    desc: "Historias reales de cómo se construyó riqueza. Sin hype, con números, con los errores incluidos.",
+    color: "text-dorado",
+  },
+  {
+    icon: "🚀",
+    title: "Startups que Rompen Todo",
+    desc: "Fintech, crypto startups, unicornios hispanohablantes. Cómo se financia el futuro y quiénes apuestan por él.",
+    color: "text-purple-400",
+  },
+  {
+    icon: "🔒",
+    title: "Privacidad & Soberanía Digital",
+    desc: "CBDCs, vigilancia masiva, anonimato en internet. Cómo proteger tu identidad y tu dinero en la era digital.",
+    color: "text-verde",
+  },
+  {
+    icon: "💸",
+    title: "Impuestos & Trucos Legales",
+    desc: "Cómo pagan menos impuestos los ricos. Planificación fiscal legal, estructuras inteligentes, lo que nadie explica.",
+    color: "text-dorado",
+  },
+  {
+    icon: "🤯",
+    title: "Lo que el Sistema No Quiere que Sepas",
+    desc: "Reserva fraccionaria, Tether, el oro de los bancos centrales. Conspiraciones financieras verificadas con datos reales.",
+    color: "text-red-400",
+  },
 ];
 
 const ultimasEdiciones = [
@@ -343,7 +404,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <p className="section-label mb-4">10 universos de análisis</p>
+              <p className="section-label mb-4">20 universos de análisis</p>
               <h2
                 className="font-display text-3xl md:text-4xl font-bold"
                 style={{ letterSpacing: "-0.02em" }}
@@ -352,8 +413,8 @@ export default function Home() {
                 <span style={{ color: "var(--verde)" }}>Vos elegís en qué profundizar.</span>
               </h2>
               <p className="mt-3 text-base" style={{ color: "var(--text-secondary)", maxWidth: "520px" }}>
-                Cubrimos el espectro completo de la economía digital para hispanohablantes de todo el mundo —
-                desde España hasta México, desde Buenos Aires hasta Miami.
+                Desde análisis técnico hasta psicología del dinero. Desde fraudes hasta geopolítica.
+                Todo lo que un hispanohablante necesita saber sobre el dinero del siglo XXI.
               </p>
             </div>
             <a href="/#newsletter" className="btn-secondary shrink-0 self-start md:self-end">

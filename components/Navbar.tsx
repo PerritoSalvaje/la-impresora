@@ -18,6 +18,7 @@ export default function Navbar() {
           <Link href="/blog" className="hover:text-verde transition-colors">Blog</Link>
           <Link href="/canal" className="hover:text-verde transition-colors">Canal</Link>
           <Link href="/libros" className="hover:text-verde transition-colors">Libros</Link>
+          <Link href="/afiliados" className="hover:text-verde transition-colors">Afiliados</Link>
           <Link
             href="#newsletter"
             className="bg-verde text-oscuro font-bold px-4 py-2 rounded-full hover:bg-verde/90 transition-colors text-sm"

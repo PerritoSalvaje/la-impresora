@@ -55,6 +55,15 @@ const posts = [
     fecha: "30 Abril 2026",
     tagColor: "bg-dorado/10 text-dorado border-dorado/20",
   },
+  {
+    slug: "como-usar-chatgpt-ganar-dinero",
+    numero: "007",
+    titulo: "Cómo usar ChatGPT para ganar dinero en 2026: 8 formas reales",
+    desc: "8 formas concretas de usar ChatGPT para generar ingresos en LATAM. Con instrucciones reales, prompts probados y precios de mercado. Para freelancers, emprendedores y profesionales.",
+    tag: "AI para negocios",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-verde/10 text-verde border-verde/20",
+  },
 ];
 
 export default function BlogPage() {

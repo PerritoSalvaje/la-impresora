@@ -204,6 +204,85 @@ export default function BlogPage() {
         </div>
       </div>
 
+      {/* ── Lo más leído ──────────────────────────────────────────── */}
+      <div className="px-6 mb-14">
+        <div className="max-w-6xl mx-auto">
+          <span className="section-label mb-5 block">Lo más leído</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+            {/* #1 */}
+            <Link href="/blog/que-es-bitcoin-y-como-funciona" className="block group">
+              <article className="card rounded-2xl p-6 flex items-start gap-5 h-full">
+                <span className="font-mono text-5xl font-bold leading-none text-verde/20 select-none shrink-0 group-hover:text-verde/40 transition-colors duration-200">
+                  1
+                </span>
+                <div className="flex-1 min-w-0">
+                  <span className="badge badge-dorado mb-3">Crypto</span>
+                  <h3 className="font-display font-black text-sm leading-snug text-white group-hover:text-verde transition-colors duration-150">
+                    Qué es Bitcoin y cómo funciona
+                  </h3>
+                </div>
+              </article>
+            </Link>
+
+            {/* #2 */}
+            <Link href="/blog/herramientas-ai-para-ganar-dinero" className="block group">
+              <article className="card rounded-2xl p-6 flex items-start gap-5 h-full">
+                <span className="font-mono text-5xl font-bold leading-none text-verde/20 select-none shrink-0 group-hover:text-verde/40 transition-colors duration-200">
+                  2
+                </span>
+                <div className="flex-1 min-w-0">
+                  <span className="badge badge-verde mb-3">AI</span>
+                  <h3 className="font-display font-black text-sm leading-snug text-white group-hover:text-verde transition-colors duration-150">
+                    Las mejores herramientas AI para ganar dinero
+                  </h3>
+                </div>
+              </article>
+            </Link>
+
+            {/* #3 */}
+            <Link href="/blog/como-funciona-el-dinero-crypto" className="block group">
+              <article className="card rounded-2xl p-6 flex items-start gap-5 h-full">
+                <span className="font-mono text-5xl font-bold leading-none text-verde/20 select-none shrink-0 group-hover:text-verde/40 transition-colors duration-200">
+                  3
+                </span>
+                <div className="flex-1 min-w-0">
+                  <span className="badge badge-dorado mb-3">Crypto</span>
+                  <h3 className="font-display font-black text-sm leading-snug text-white group-hover:text-verde transition-colors duration-150">
+                    Cómo funciona el dinero crypto
+                  </h3>
+                </div>
+              </article>
+            </Link>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── Banner "Nuevo en La Impresora?" ───────────────────────── */}
+      <div className="px-6 mb-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="card rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-5 justify-between relative overflow-hidden">
+            {/* Accent line */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-verde/0 via-verde/30 to-verde/0" />
+            <div>
+              <span className="section-label mb-2 block">Para nuevos lectores</span>
+              <p className="text-white/70 text-sm leading-relaxed max-w-lg">
+                <strong className="text-white font-semibold">¿Primera vez por acá?</strong>{" "}
+                Tenemos una guía de por dónde empezar según tu nivel.
+              </p>
+            </div>
+            <Link
+              href="/empeza"
+              className="btn-secondary shrink-0 whitespace-nowrap"
+              style={{ padding: "10px 20px", fontSize: "13px" }}
+            >
+              Ver la guía →
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ── Featured post ─────────────────────────────────────────── */}
       <div className="px-6 mb-10">
         <div className="max-w-6xl mx-auto">

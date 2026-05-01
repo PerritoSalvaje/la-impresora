@@ -11,10 +11,13 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex gap-6 text-sm text-white/40">
+        <div className="flex flex-wrap gap-6 text-sm text-white/40">
           <Link href="/blog" className="hover:text-verde transition-colors">Blog</Link>
           <Link href="/canal" className="hover:text-verde transition-colors">Canal</Link>
           <Link href="/libros" className="hover:text-verde transition-colors">Libros</Link>
+          <Link href="/recursos" className="hover:text-verde transition-colors">Recursos</Link>
+          <Link href="/sponsors" className="hover:text-verde transition-colors">Sponsors</Link>
+          <Link href="/nosotros" className="hover:text-verde transition-colors">Nosotros</Link>
         </div>
 
         <div className="flex gap-4">

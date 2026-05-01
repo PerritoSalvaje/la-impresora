@@ -100,6 +100,42 @@ const posts = [
     fecha: "30 Abril 2026",
     tagColor: "bg-dorado/10 text-dorado border-dorado/20",
   },
+  {
+    slug: "como-ganar-dinero-con-crypto-sin-invertir",
+    numero: "012",
+    titulo: "Cómo ganar dinero con crypto sin invertir dinero: 7 métodos reales",
+    desc: "Airdrops, staking con lo que ya tenés, bounties de proyectos, learn-to-earn, mining con PC y contenido sobre crypto. La guía honesta sin promesas vacías.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
+  {
+    slug: "mejores-exchanges-crypto-argentina-2026",
+    numero: "013",
+    titulo: "Los mejores exchanges de criptomonedas en Argentina en 2026",
+    desc: "Comparativa completa de Lemon vs Ripio vs Buenbit vs Binance vs Bybit para Argentina: comisiones reales, límites, funciones y cuál usar según tu objetivo.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
+  {
+    slug: "que-es-bitcoin-y-como-funciona",
+    numero: "014",
+    titulo: "Qué es Bitcoin y cómo funciona: la guía más simple de 2026",
+    desc: "Guía definitiva de Bitcoin para principiantes: historia, cómo funciona la blockchain, cómo comprar en LATAM, qué es una wallet y los riesgos reales. Sin jerga.",
+    tag: "Bitcoin",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
+  {
+    slug: "solana-que-es-como-funciona",
+    numero: "015",
+    titulo: "Solana: qué es, cómo funciona y por qué es importante en 2026",
+    desc: "Cómo funciona el Proof of History de Solana, comparativa con Ethereum, proyectos del ecosistema, cómo comprar SOL en LATAM y los riesgos que no te cuentan.",
+    tag: "Altcoins",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-verde/10 text-verde border-verde/20",
+  },
 ];
 
 export default function BlogPage() {

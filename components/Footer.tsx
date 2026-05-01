@@ -15,7 +15,10 @@ export default function Footer() {
           <Link href="/blog" className="hover:text-verde transition-colors">Blog</Link>
           <Link href="/canal" className="hover:text-verde transition-colors">Canal</Link>
           <Link href="/libros" className="hover:text-verde transition-colors">Libros</Link>
+          <Link href="/tienda" className="hover:text-verde transition-colors">Tienda</Link>
+          <Link href="/premium" className="hover:text-dorado transition-colors text-dorado/50">Premium</Link>
           <Link href="/recursos" className="hover:text-verde transition-colors">Recursos</Link>
+          <Link href="/afiliados-programa" className="hover:text-verde transition-colors">Afiliados</Link>
           <Link href="/sponsors" className="hover:text-verde transition-colors">Sponsors</Link>
           <Link href="/nosotros" className="hover:text-verde transition-colors">Nosotros</Link>
         </div>

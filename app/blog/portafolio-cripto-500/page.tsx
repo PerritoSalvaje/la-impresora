@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata = {
   title: "Cómo armar un portafolio cripto con $500 en LATAM (guía 2026)",

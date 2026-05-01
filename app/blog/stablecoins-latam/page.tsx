@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata = {
   title: "Stablecoins en LATAM: la guía completa para dolarizarte en 2026",

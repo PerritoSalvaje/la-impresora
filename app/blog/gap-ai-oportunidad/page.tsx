@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 const BASE_URL = "https://laimpresora.io";
 const ARTICLE_URL = `${BASE_URL}/blog/gap-ai-oportunidad`;
@@ -190,6 +191,8 @@ export default function EdicionGapAI() {
 
                 <h2>¿Por qué esto importa para vos?</h2>
 
+                <ArticleCTA />
+
                 <p>
                   Porque en LATAM el gap es todavía más grande. En Argentina, México, Colombia y Chile,
                   la adopción de AI en contextos laborales productivos está entre 5 y 8 puntos porcentuales
@@ -205,6 +208,7 @@ export default function EdicionGapAI() {
                   Si vos aprendés hoy a usar AI para hacer en 2 horas lo que antes te llevaba 8,
                   no solo sos más productivo: podés cobrar más, hacer más clientes, lanzar más proyectos,
                   o simplemente recuperar 6 horas de tu vida. La ecuación es absurdamente favorable.
+                  Mirá las <Link href="/blog/herramientas-ai-para-ganar-dinero" className="text-verde hover:underline">herramientas concretas de AI para monetizar</Link> que ya están funcionando en LATAM.
                 </p>
 
                 <h2>Por dónde empezar (en serio)</h2>

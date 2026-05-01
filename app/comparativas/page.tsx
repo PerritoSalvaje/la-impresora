@@ -30,6 +30,39 @@ const comparativas = [
     icono: "₿",
   },
   {
+    slug: "solana-vs-ethereum",
+    titulo: "Solana vs Ethereum",
+    subtitulo: "Activos",
+    resumen:
+      "65K TPS vs 15-30 TPS. $0.00025 vs $0.50–5 por tx. Uptime, ecosistema DeFi, NFTs y cuál elegir para invertir o desarrollar en 2026.",
+    veredicto: "ETH para seguridad · SOL para velocidad y DeFi emergente",
+    tag: "Activos",
+    tagVariant: "badge-verde",
+    icono: "◎",
+  },
+  {
+    slug: "usdc-vs-usdt",
+    titulo: "USDC vs USDT",
+    subtitulo: "Stablecoins",
+    resumen:
+      "Respaldo, auditorías, regulación y transparencia. El incidente de SVB. El misterio de las reservas de Tether. Cuál stablecoin usar en 2026.",
+    veredicto: "USDC para DeFi y ahorros · USDT para trading y P2P",
+    tag: "Stablecoins",
+    tagVariant: "badge-neutral",
+    icono: "◈",
+  },
+  {
+    slug: "bitcoin-vs-oro",
+    titulo: "Bitcoin vs Oro",
+    subtitulo: "Activos Refugio",
+    resumen:
+      "Portabilidad, escasez programada, volatilidad, custodia y rendimientos históricos. Por qué muchos inversores tienen ambos en su portafolio.",
+    veredicto: "Oro para estabilidad · BTC para upside y portabilidad",
+    tag: "Refugio",
+    tagVariant: "badge-dorado",
+    icono: "◆",
+  },
+  {
     slug: "defi-vs-banco",
     titulo: "DeFi vs Banco Tradicional",
     subtitulo: "Finanzas",

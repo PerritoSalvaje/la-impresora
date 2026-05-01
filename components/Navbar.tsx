@@ -21,6 +21,8 @@ export default function Navbar() {
           <Link href="/tienda" className="hover:text-verde transition-colors">Tienda</Link>
           <Link href="/recursos" className="hover:text-verde transition-colors">Recursos</Link>
           <Link href="/roadmap" className="hover:text-verde transition-colors">Roadmap</Link>
+          <Link href="/radar" className="hover:text-verde transition-colors">Radar</Link>
+          <Link href="/agency" className="hover:text-verde transition-colors">Agency</Link>
           <Link href="/sponsors" className="hover:text-dorado transition-colors text-dorado/60">Sponsors</Link>
           <Link
             href="#newsletter"
@@ -52,6 +54,8 @@ export default function Navbar() {
           <Link href="/tienda" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Tienda</Link>
           <Link href="/recursos" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Recursos</Link>
           <Link href="/roadmap" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Roadmap</Link>
+          <Link href="/radar" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Radar</Link>
+          <Link href="/agency" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Agency</Link>
           <Link href="#newsletter" className="bg-verde text-oscuro font-bold px-4 py-2 rounded-full text-center" onClick={() => setOpen(false)}>
             Suscribite gratis →
           </Link>

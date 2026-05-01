@@ -100,6 +100,7 @@ export default function Footer() {
           <Link href="/afiliados-programa" className="hover:text-verde transition-colors">Afiliados</Link>
           <Link href="/sponsors" className="hover:text-verde transition-colors">Sponsors</Link>
           <Link href="/nosotros" className="hover:text-verde transition-colors">Nosotros</Link>
+          <Link href="/roadmap" className="hover:text-verde transition-colors">Roadmap</Link>
         </div>
 
         <div className="flex gap-4">

@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsTicker from "@/components/NewsTicker";
+import AmplitudeProvider from "@/components/AmplitudeProvider";
+import { Suspense } from "react";
 
 const BASE_URL = "https://laimpresora.io";
 
@@ -148,10 +150,14 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-oscuro text-white antialiased">
-        <NewsTicker />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <Suspense>
+          <AmplitudeProvider>
+            <NewsTicker />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </AmplitudeProvider>
+        </Suspense>
       </body>
     </html>
   );

@@ -41,25 +41,28 @@ const stats = [
 
 const ultimasEdiciones = [
   {
+    slug: "gap-ai-oportunidad",
     numero: "001",
-    titulo: "El gap que nadie ve: por qué la AI ya puede hacer el 80% de tu trabajo",
-    desc: "Analizamos el gráfico que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. La oportunidad más grande de la década.",
+    titulo: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo y nadie la está usando",
+    desc: "Analizamos el estudio que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. La oportunidad más grande de la década.",
     tag: "AI",
     tagColor: "bg-verde/10 text-verde border-verde/20",
   },
   {
+    slug: "banco-tu-peor-enemigo",
     numero: "002",
-    titulo: "Tokenización para principiantes: cómo tu campo puede valer 10x siendo un token",
-    desc: "La tokenización de activos reales está transformando quién puede invertir en qué. Te explicamos cómo funciona con ejemplos concretos de LATAM.",
-    tag: "Tokenización",
-    tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
+    titulo: "Por qué tu banco es tu peor enemigo financiero (y qué hacer al respecto)",
+    desc: "Te cobra por guardar tu plata, te paga menos que la inflación y te pone límites para mover tu propio dinero. Te mostramos la salida.",
+    tag: "Crypto & Mercados",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
   },
   {
+    slug: "tokenizacion-campo-paraguay",
     numero: "003",
-    titulo: "El bot que atiende clientes 24/7 y cuesta menos que un café por día",
-    desc: "WhatsApp + AI = el empleado más barato y eficiente que vas a tener. Cómo empresas en Argentina lo están usando para triplicar sus conversiones.",
-    tag: "AI para negocios",
-    tagColor: "bg-verde/10 text-verde border-verde/20",
+    titulo: "Tokenización: cómo un campo en Paraguay puede ser tuyo con $50",
+    desc: "La tokenización de activos reales permite que cualquier persona invierta en tierra, inmuebles o commodities con tickets mínimos.",
+    tag: "Tokenización",
+    tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
   },
 ];
 
@@ -160,9 +163,10 @@ export default function Home() {
 
           <div className="space-y-6">
             {ultimasEdiciones.map((e) => (
-              <div
+              <Link
                 key={e.numero}
-                className="gradient-border rounded-2xl p-6 md:p-8 hover:scale-[1.01] transition-transform cursor-pointer"
+                href={`/blog/${e.slug}`}
+                className="gradient-border rounded-2xl p-6 md:p-8 hover:scale-[1.01] transition-transform block"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-4">
                   <span className="text-white/20 font-mono text-sm shrink-0">#{e.numero}</span>
@@ -172,11 +176,11 @@ export default function Home() {
                         {e.tag}
                       </span>
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mb-2 leading-tight">{e.titulo}</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 leading-tight hover:text-verde transition-colors">{e.titulo}</h3>
                     <p className="text-white/40 text-sm leading-relaxed">{e.desc}</p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

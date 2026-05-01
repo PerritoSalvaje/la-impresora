@@ -20,22 +20,13 @@ const posts = [
     tagColor: "bg-dorado/10 text-dorado border-dorado/20",
   },
   {
-    slug: "bot-whatsapp-negocio",
+    slug: "tokenizacion-campo-paraguay",
     numero: "003",
-    titulo: "El bot que atiende clientes 24/7 y cuesta menos que un café por día",
-    desc: "WhatsApp + AI = el empleado más barato y eficiente que vas a tener. Cómo empresas en Argentina lo están usando para triplicar conversiones.",
-    tag: "AI para negocios",
-    fecha: "15 Abril 2026",
-    tagColor: "bg-verde/10 text-verde border-verde/20",
-  },
-  {
-    slug: "crypto-vs-banco",
-    numero: "004",
-    titulo: "Tu banco te cobra por guardar tu plata. Esto es una locura (y hay salida).",
-    desc: "Comisiones, inflación, límites de transferencia. El sistema bancario tradicional juega en contra tuyo. Cómo salir sin quedarte afuera del sistema.",
-    tag: "Crypto",
-    fecha: "8 Abril 2026",
-    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+    titulo: "Tokenización: cómo un campo en Paraguay puede ser tuyo con $50",
+    desc: "La tokenización de activos reales permite que cualquier persona invierta en tierra, inmuebles o commodities con tickets mínimos. El acceso democratizado a la inversión real llegó a LATAM.",
+    tag: "Tokenización",
+    fecha: "13 Mayo 2026",
+    tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
   },
 ];
 

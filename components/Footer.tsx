@@ -40,8 +40,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-white/5 text-center text-white/20 text-xs">
-        © 2026 La Impresora. Operado por Wendy OS.
+      <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-white/20 text-xs">
+        <span>© 2026 La Impresora. Operado por Wendy OS.</span>
+        <div className="flex gap-4">
+          <a href="/privacidad" className="hover:text-verde transition-colors">Privacidad</a>
+          <a href="/terminos" className="hover:text-verde transition-colors">Términos</a>
+          <a href="/sponsors" className="hover:text-verde transition-colors">Sponsors</a>
+        </div>
       </div>
     </footer>
   );

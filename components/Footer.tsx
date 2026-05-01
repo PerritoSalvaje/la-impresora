@@ -5,6 +5,7 @@ import { useState } from "react";
 const COL_CONTENIDO = [
   { href: "/blog", label: "Blog" },
   { href: "/canal", label: "Canal" },
+  { href: "/calculadoras", label: "Herramientas" },
   { href: "/libros", label: "Libros" },
   { href: "/glosario", label: "Glosario" },
   { href: "/faq", label: "FAQ" },

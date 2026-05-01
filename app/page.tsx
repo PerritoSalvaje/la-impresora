@@ -14,22 +14,62 @@ const verticales = [
   {
     icon: "₿",
     title: "Crypto & Mercados",
-    desc: "Análisis de ciclos, on-chain data y movimientos de capital institucional. Lo que mueve el mercado, explicado con rigor.",
+    desc: "Análisis de ciclos, on-chain data y flujos institucionales. Lo que realmente mueve el mercado, sin ruido.",
+    color: "text-dorado",
   },
   {
     icon: "⬡",
     title: "DeFi & Protocolos",
-    desc: "Yields reales, liquidez profunda y riesgos que la mayoría ignora. Research de protocolos antes de que sean mainstream.",
+    desc: "Yields reales, liquidez profunda y riesgos que la mayoría ignora. Research antes de que sea mainstream.",
+    color: "text-verde",
   },
   {
     icon: "◈",
     title: "Tokenización de Activos",
-    desc: "Real estate, commodities y deuda tokenizada. El mercado de $16T que se está construyendo ahora mismo en LATAM.",
+    desc: "Real estate, commodities y deuda tokenizada. El mercado de $16T que se construye ahora mismo.",
+    color: "text-blue-400",
   },
   {
     icon: "∞",
     title: "AI & Economía Digital",
-    desc: "Cómo la inteligencia artificial está redistribuyendo valor. Casos concretos, no hype. Herramientas que ya funcionan.",
+    desc: "Cómo la inteligencia artificial redistribuye valor. Herramientas que ya funcionan, casos concretos.",
+    color: "text-purple-400",
+  },
+  {
+    icon: "◎",
+    title: "Macro & Dinero Global",
+    desc: "Tasas, inflación, geopolítica del dinero. Por qué lo que decide la Fed afecta tu bolsillo en cualquier país.",
+    color: "text-dorado",
+  },
+  {
+    icon: "▲",
+    title: "Inversiones & Patrimonio",
+    desc: "Acciones, ETFs, bonos, real estate y crypto. Cómo construir un patrimonio sin importar desde dónde.",
+    color: "text-verde",
+  },
+  {
+    icon: "⚡",
+    title: "Emprendimiento Digital",
+    desc: "SaaS, newsletters, content, freelancing. Los negocios que se pueden construir desde cualquier lugar del mundo.",
+    color: "text-blue-400",
+  },
+  {
+    icon: "⊕",
+    title: "Web3 & Futuro Digital",
+    desc: "DAOs, identidad soberana, gobernanza descentralizada. La internet que se está construyendo ahora.",
+    color: "text-purple-400",
+  },
+  {
+    icon: "⛏",
+    title: "Recursos & Commodities",
+    desc: "Litio, cobre, oro, petróleo y energía. Los activos físicos que mueven la economía real.",
+    color: "text-dorado",
+  },
+  {
+    icon: "⚖",
+    title: "Regulación & Compliance",
+    desc: "MiCA en Europa, nuevas leyes crypto, impuestos y cumplimiento en el mundo hispanohablante.",
+    color: "text-verde",
   },
 ];
 
@@ -301,39 +341,43 @@ export default function Home() {
       {/* ── SECCIÓN 4: VERTICALES ───────────────────────────────────── */}
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-14">
-            <p className="section-label mb-4">Cobertura editorial</p>
-            <h2
-              className="font-display text-3xl md:text-4xl font-bold"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              Cuatro temas. Un solo objetivo.
-            </h2>
-            <p className="mt-3 text-base" style={{ color: "var(--text-secondary)", maxWidth: "520px" }}>
-              Cada edición profundiza uno o más de estos universos con datos verificables y análisis original.
-            </p>
+          <div className="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <p className="section-label mb-4">10 universos de análisis</p>
+              <h2
+                className="font-display text-3xl md:text-4xl font-bold"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                Un tema distinto cada semana.<br />
+                <span style={{ color: "var(--verde)" }}>Vos elegís en qué profundizar.</span>
+              </h2>
+              <p className="mt-3 text-base" style={{ color: "var(--text-secondary)", maxWidth: "520px" }}>
+                Cubrimos el espectro completo de la economía digital para hispanohablantes de todo el mundo —
+                desde España hasta México, desde Buenos Aires hasta Miami.
+              </p>
+            </div>
+            <a href="/#newsletter" className="btn-secondary shrink-0 self-start md:self-end">
+              Elegir mis temas →
+            </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
             {verticales.map((v) => (
               <div
                 key={v.title}
-                className="card group p-8 cursor-default"
+                className="card group p-5 cursor-default hover:border-white/15 transition-all"
                 style={{ borderRadius: "12px" }}
               >
-                <div
-                  className="text-2xl mb-5 font-mono leading-none"
-                  style={{ color: "var(--text-muted)" }}
-                >
+                <div className={`text-xl mb-3 font-mono leading-none ${v.color}`}>
                   {v.icon}
                 </div>
                 <h3
-                  className="font-display text-lg font-semibold mb-3"
+                  className="font-display text-sm font-semibold mb-2 leading-tight"
                   style={{ letterSpacing: "-0.01em" }}
                 >
                   {v.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)", lineHeight: "1.5" }}>
                   {v.desc}
                 </p>
               </div>

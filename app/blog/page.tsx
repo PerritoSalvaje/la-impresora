@@ -28,6 +28,33 @@ const posts = [
     fecha: "13 Mayo 2026",
     tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
   },
+  {
+    slug: "tokenizacion-activos-como-invertir",
+    numero: "004",
+    titulo: "Qué es la tokenización de activos y cómo invertir desde $50 en 2026",
+    desc: "Convertir un departamento, un campo o un bono en tokens digitales ya no es ciencia ficción. Te explicamos cómo funciona, ejemplos reales en LATAM y dónde empezar con $50.",
+    tag: "Tokenización",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-blue-400/10 text-blue-400 border-blue-400/20",
+  },
+  {
+    slug: "herramientas-ai-para-ganar-dinero",
+    numero: "005",
+    titulo: "Las mejores herramientas de AI para ganar dinero en 2026 (probadas)",
+    desc: "8 herramientas de inteligencia artificial con precio, caso de uso real y cuánto podés cobrar con cada una. Para freelancers y dueños de negocios en LATAM.",
+    tag: "AI para negocios",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-verde/10 text-verde border-verde/20",
+  },
+  {
+    slug: "como-funciona-el-dinero-crypto",
+    numero: "006",
+    titulo: "Cómo funciona el dinero crypto: guía completa para principiantes en LATAM",
+    desc: "Qué es Bitcoin, cómo funcionan las wallets, cómo comprar crypto en Argentina, México y el resto de LATAM, y cómo empezar con poco dinero. Sin jerga.",
+    tag: "Crypto",
+    fecha: "30 Abril 2026",
+    tagColor: "bg-dorado/10 text-dorado border-dorado/20",
+  },
 ];
 
 export default function BlogPage() {

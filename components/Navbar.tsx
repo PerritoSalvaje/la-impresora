@@ -2,65 +2,121 @@
 import Link from "next/link";
 import { useState } from "react";
 
+const NAV_LINKS = [
+  { href: "/blog", label: "Blog" },
+  { href: "/canal", label: "Canal" },
+  { href: "/tienda", label: "Tienda" },
+  { href: "/radar", label: "Radar" },
+  { href: "/agency", label: "Agency" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-7 left-0 right-0 z-50 border-b border-white/5 bg-oscuro/80 backdrop-blur-md">
+    <nav
+      className="fixed top-7 left-0 right-0 z-50"
+      style={{
+        background: "rgba(8,9,10,0.85)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-verde text-xl font-black tracking-tight">
-            🖨️ La Impresora
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 no-underline"
+          style={{ textDecoration: "none" }}
+        >
+          <span className="text-lg" aria-hidden="true">🖨️</span>
+          <span
+            className="font-display font-bold text-base tracking-tight"
+            style={{ color: "#f0f0ef" }}
+          >
+            La Impresora
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-          <Link href="/blog" className="hover:text-verde transition-colors">Blog</Link>
-          <Link href="/canal" className="hover:text-verde transition-colors">Canal</Link>
-          <Link href="/libros" className="hover:text-verde transition-colors">Libros</Link>
-          <Link href="/tienda" className="hover:text-verde transition-colors">Tienda</Link>
-          <Link href="/recursos" className="hover:text-verde transition-colors">Recursos</Link>
-          <Link href="/roadmap" className="hover:text-verde transition-colors">Roadmap</Link>
-          <Link href="/radar" className="hover:text-verde transition-colors">Radar</Link>
-          <Link href="/agency" className="hover:text-verde transition-colors">Agency</Link>
-          <Link href="/sponsors" className="hover:text-dorado transition-colors text-dorado/60">Sponsors</Link>
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-7">
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm transition-colors duration-200"
+              style={{ color: "rgba(240,240,239,0.5)", textDecoration: "none" }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.color = "#f0f0ef")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.color =
+                  "rgba(240,240,239,0.5)")
+              }
+            >
+              {label}
+            </Link>
+          ))}
+
+          {/* CTA */}
           <Link
             href="#newsletter"
-            className="bg-verde text-oscuro font-bold px-4 py-2 rounded-full hover:bg-verde/90 transition-colors text-sm"
+            className="btn-primary"
+            style={{ padding: "8px 16px", fontSize: "13px", borderRadius: "10px" }}
           >
-            Suscribite gratis →
+            Suscribirse
           </Link>
         </div>
 
+        {/* Hamburger */}
         <button
-          className="md:hidden text-white/60 hover:text-white"
+          className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
+          style={{ color: "rgba(240,240,239,0.5)", background: "transparent", border: "none", cursor: "pointer" }}
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-gris border-t border-white/5 px-6 py-4 flex flex-col gap-4 text-sm">
-          <Link href="/blog" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Blog</Link>
-          <Link href="/canal" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Canal</Link>
-          <Link href="/libros" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Libros</Link>
-          <Link href="/tienda" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Tienda</Link>
-          <Link href="/recursos" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Recursos</Link>
-          <Link href="/roadmap" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Roadmap</Link>
-          <Link href="/radar" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Radar</Link>
-          <Link href="/agency" className="text-white/60 hover:text-verde" onClick={() => setOpen(false)}>Agency</Link>
-          <Link href="#newsletter" className="bg-verde text-oscuro font-bold px-4 py-2 rounded-full text-center" onClick={() => setOpen(false)}>
-            Suscribite gratis →
+      {/* Mobile menu */}
+      <div
+        className="md:hidden overflow-hidden transition-all duration-200"
+        style={{
+          maxHeight: open ? "320px" : "0px",
+          opacity: open ? 1 : 0,
+          borderTop: open ? "1px solid rgba(255,255,255,0.06)" : "none",
+        }}
+      >
+        <div className="px-6 py-5 flex flex-col gap-5" style={{ background: "#111213" }}>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm"
+              style={{ color: "rgba(240,240,239,0.55)", textDecoration: "none" }}
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <Link
+            href="#newsletter"
+            className="btn-primary text-center"
+            style={{ padding: "10px 16px", fontSize: "13px", borderRadius: "10px", justifyContent: "center" }}
+            onClick={() => setOpen(false)}
+          >
+            Suscribirse
           </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

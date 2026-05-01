@@ -44,7 +44,7 @@ export default function Newsletter() {
         >
           {/* Badge */}
           <span className="badge badge-verde mb-6 inline-flex">
-            Newsletter gratuito
+            🎁 Regalo de bienvenida
           </span>
 
           {/* Headline */}
@@ -52,13 +52,22 @@ export default function Newsletter() {
             className="font-display font-bold text-2xl md:text-3xl leading-tight mb-3"
             style={{ color: "#f0f0ef", letterSpacing: "-0.02em" }}
           >
-            El análisis que no encontrás en ningún otro lado.
+            Suscribite y recibí gratis:<br />
+            <span style={{ color: "#00e676" }}>"La Guía del Inversor en la Era Digital"</span>
           </h2>
+
+          {/* Lead magnet detail */}
+          <div className="rounded-xl px-4 py-3 mb-5 flex items-start gap-3" style={{ background: "rgba(0,230,118,0.04)", border: "1px solid rgba(0,230,118,0.1)" }}>
+            <span style={{ fontSize: "20px", lineHeight: 1 }}>📘</span>
+            <div>
+              <p className="text-sm font-semibold" style={{ color: "#f0f0ef" }}>PDF gratuito — 24 páginas</p>
+              <p className="text-xs mt-0.5" style={{ color: "rgba(240,240,239,0.45)" }}>Crypto, AI, DeFi y tokenización explicados desde cero. Descarga inmediata.</p>
+            </div>
+          </div>
 
           {/* Subline */}
           <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(240,240,239,0.5)" }}>
-            Cada jueves: un análisis profundo sobre cripto, finanzas e inversiones.
-            Sin clickbait, sin conflicto de interés.
+            Más el newsletter cada jueves: análisis de mercados, herramientas y oportunidades para hispanohablantes de todo el mundo.
           </p>
 
           {/* Bullets */}

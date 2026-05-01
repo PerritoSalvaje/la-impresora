@@ -2,21 +2,74 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
 
+const BASE_URL = "https://laimpresora.io";
+const ARTICLE_URL = `${BASE_URL}/blog/gap-ai-oportunidad`;
+
 export const metadata: Metadata = {
-  title: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo | La Impresora #001",
+  title: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo",
   description:
     "Hay un estudio que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. Ese gap es la oportunidad más grande de la década. Te explicamos cómo aprovecharlo.",
+  alternates: {
+    canonical: ARTICLE_URL,
+  },
   openGraph: {
     title: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo",
     description:
       "Hay un estudio que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. Ese gap es la oportunidad más grande de la década.",
     type: "article",
+    url: ARTICLE_URL,
+    publishedTime: "2026-04-29T00:00:00Z",
+    authors: ["La Impresora"],
+    tags: ["AI", "inteligencia artificial", "productividad", "LATAM", "crypto"],
   },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo y nadie la está usando",
+  description:
+    "Hay un estudio que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. Ese gap es la oportunidad más grande de la década.",
+  url: ARTICLE_URL,
+  datePublished: "2026-04-29T00:00:00Z",
+  dateModified: "2026-04-29T00:00:00Z",
+  author: {
+    "@type": "Organization",
+    name: "La Impresora",
+    url: BASE_URL,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "La Impresora",
+    url: BASE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BASE_URL}/logo.png`,
+    },
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${ARTICLE_URL}/opengraph-image`,
+    width: 1200,
+    height: 630,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": ARTICLE_URL,
+  },
+  keywords: "AI, inteligencia artificial, productividad, LATAM, oportunidad, gap",
+  articleSection: "AI para ganar plata",
+  inLanguage: "es-AR",
 };
 
 export default function EdicionGapAI() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="max-w-2xl mx-auto">
 
         {/* Breadcrumb */}

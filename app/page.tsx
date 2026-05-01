@@ -68,7 +68,7 @@ const ultimasEdiciones = [
 
 export default function Home() {
   return (
-    <div className="pt-16">
+    <div className="pt-[92px]">
       {/* Hero */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-verde/5 via-transparent to-transparent pointer-events-none" />
@@ -111,8 +111,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Proof Bar */}
+      <section className="py-6 px-6 border-y border-white/5" style={{ background: "rgba(0,255,135,0.02)" }}>
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
+          <span className="text-white/25 text-xs uppercase tracking-widest font-semibold shrink-0">
+            Mencionados en
+          </span>
+          <div className="flex items-center gap-8 sm:gap-12">
+            {[
+              { name: "CoinDesk", style: "font-black tracking-tight text-lg" },
+              { name: "Decrypt", style: "font-bold tracking-wide text-base" },
+              { name: "El País", style: "font-serif italic font-bold text-lg" },
+            ].map((media) => (
+              <span
+                key={media.name}
+                className={`${media.style} text-white/20 hover:text-white/40 transition-colors cursor-default select-none`}
+              >
+                {media.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="py-16 px-6 border-y border-white/5">
+      <section className="py-16 px-6 border-b border-white/5">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
@@ -145,6 +168,73 @@ export default function Home() {
                 <div className={`text-4xl mb-4`}>{v.icon}</div>
                 <h3 className={`text-xl font-black mb-2 ${v.color}`}>{v.title}</h3>
                 <p className="text-white/50 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo funciona */}
+      <section className="py-24 px-6 border-y border-white/5" style={{ background: "rgba(0,255,135,0.015)" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-verde/10 border border-verde/20 text-verde text-xs font-bold px-3 py-1 rounded-full mb-6 uppercase tracking-widest">
+              Simple y directo
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black">
+              Tres pasos.<br />
+              <span className="text-verde">Todo lo que necesitás.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Línea conectora — solo desktop */}
+            <div className="hidden md:block absolute top-10 left-[calc(16.67%+1rem)] right-[calc(16.67%+1rem)] h-px bg-gradient-to-r from-verde/20 via-dorado/20 to-verde/20" />
+
+            {[
+              {
+                step: "01",
+                titulo: "Suscribite gratis",
+                desc: "Dejá tu email. Sin tarjeta, sin datos de más. En 10 segundos estás dentro.",
+                color: "text-verde",
+                bg: "bg-verde/10 border-verde/20",
+                cta: true,
+              },
+              {
+                step: "02",
+                titulo: "Aprendé cada jueves",
+                desc: "Cada semana: 1 tema profundo, 3 noticias que importan, 1 oportunidad accionable. Sin ruido.",
+                color: "text-dorado",
+                bg: "bg-dorado/10 border-dorado/20",
+                cta: false,
+              },
+              {
+                step: "03",
+                titulo: "Ganá ventaja",
+                desc: "Mientras el 90% ignora crypto y AI, vos ya sabés cómo funcionan. El conocimiento es la ventaja.",
+                color: "text-purple-400",
+                bg: "bg-purple-400/10 border-purple-400/20",
+                cta: false,
+              },
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center text-center gap-5">
+                <div
+                  className={`w-20 h-20 rounded-full flex items-center justify-center border-2 ${item.bg} relative z-10`}
+                >
+                  <span className={`text-3xl font-black ${item.color}`}>{item.step}</span>
+                </div>
+                <div>
+                  <h3 className={`text-xl font-black mb-2 ${item.color}`}>{item.titulo}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed max-w-xs mx-auto">{item.desc}</p>
+                </div>
+                {item.cta && (
+                  <a
+                    href="#newsletter"
+                    className="mt-2 bg-verde text-oscuro font-black text-sm px-6 py-3 rounded-full hover:bg-verde/90 transition-all verde-glow"
+                  >
+                    Empezar ahora →
+                  </a>
+                )}
               </div>
             ))}
           </div>

@@ -6,7 +6,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-oscuro/80 backdrop-blur-md">
+    <nav className="fixed top-7 left-0 right-0 z-50 border-b border-white/5 bg-oscuro/80 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-verde text-xl font-black tracking-tight">

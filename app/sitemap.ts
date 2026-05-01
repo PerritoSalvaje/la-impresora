@@ -49,6 +49,36 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.7,
   },
   {
+    url: `${BASE_URL}/comparativas`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/binance-vs-bybit`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/bitcoin-vs-ethereum`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/defi-vs-banco`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/comparativas/ledger-vs-trezor`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: `${BASE_URL}/afiliados`,
     lastModified: new Date(),
     changeFrequency: "monthly",

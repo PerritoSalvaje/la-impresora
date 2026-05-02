@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { events } from "@/lib/amplitude";
 
 const DISMISSED_KEY = "li_sticky_mobile_dismissed_v1";
 
@@ -16,10 +17,17 @@ export default function StickyMobileCTA() {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     if (!isMobile) return;
 
+    let trackedShown = false;
     const onScroll = () => {
       // Aparece después de scrollear 30% del documento
       const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      if (scrolled > 0.3) setShow(true);
+      if (scrolled > 0.3) {
+        setShow(true);
+        if (!trackedShown) {
+          events.stickyMobileShown();
+          trackedShown = true;
+        }
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -41,7 +49,10 @@ export default function StickyMobileCTA() {
           utm_medium: "sticky_mobile",
         }),
       });
-      if (res.ok) setStatus("success");
+      if (res.ok) {
+        setStatus("success");
+        events.stickyMobileSubscribed();
+      }
     } catch {
       // Mantener idle silencioso, no mostrar error en mobile bar
     }

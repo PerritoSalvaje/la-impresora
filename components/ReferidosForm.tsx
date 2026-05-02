@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { events } from "@/lib/amplitude";
 
 export default function ReferidosForm() {
   const [email, setEmail] = useState("");
@@ -38,6 +39,7 @@ export default function ReferidosForm() {
         setRefLink(link);
         setStatus("success");
         setEmail("");
+        events.referralLinkGenerated(code);
       } else {
         setStatus("error");
       }

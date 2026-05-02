@@ -52,6 +52,15 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
     languages: {
       "es-AR": BASE_URL,
+      "es-MX": BASE_URL,
+      "es-CO": BASE_URL,
+      "es-CL": BASE_URL,
+      "es-PE": BASE_URL,
+      "es-UY": BASE_URL,
+      "es-VE": BASE_URL,
+      "es-ES": BASE_URL,
+      "es": BASE_URL,
+      "x-default": BASE_URL,
     },
     types: {
       "application/rss+xml": `${BASE_URL}/feed.xml`,
@@ -88,9 +97,9 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
-  verification: {
-    google: "REEMPLAZAR_CON_TOKEN_GOOGLE_SEARCH_CONSOLE",
-  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION }
+    : undefined,
   category: "finance",
 };
 

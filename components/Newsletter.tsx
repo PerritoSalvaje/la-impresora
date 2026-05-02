@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { STATS, formatSubscribers } from "@/lib/stats";
+import { events } from "@/lib/amplitude";
 
 const BULLETS = [
   { icon: "✦", text: "Gratis" },
@@ -25,6 +26,7 @@ export default function Newsletter() {
     e.preventDefault();
     if (!email) return;
     setStatus("loading");
+    events.newsletterSignup("home_hero", ref);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -40,6 +42,7 @@ export default function Newsletter() {
       if (res.ok) {
         setStatus("success");
         setEmail("");
+        events.newsletterSignupSuccess("home_hero", ref);
       } else {
         setStatus("error");
       }

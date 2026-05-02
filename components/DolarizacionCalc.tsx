@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { events } from "@/lib/amplitude";
 
 // Calculadora gated: el resultado completo se muestra después del email opt-in.
 // Datos de inflación basados en estadísticas oficiales 2024-2025 (orientativas).
@@ -60,6 +61,8 @@ export default function DolarizacionCalc() {
       if (res.ok) {
         setUnlocked(true);
         setStatus("success");
+        events.leadMagnetUnlock("dolarizacion");
+        events.dolarizacionCalc(paisData.code, monto, meses);
       } else {
         setStatus("error");
       }

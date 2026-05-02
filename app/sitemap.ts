@@ -43,6 +43,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.85,
   },
   {
+    url: `${BASE_URL}/recursos/prompts`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: `${BASE_URL}/guia`,
     lastModified: new Date(),
     changeFrequency: "monthly",

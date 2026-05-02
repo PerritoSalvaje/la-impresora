@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { events } from "@/lib/amplitude";
 
 const STORAGE_KEY = "li_exit_intent_shown_v1";
 const COOLDOWN_DAYS = 7;
@@ -32,6 +33,7 @@ export default function ExitIntent() {
       if (!armed) return;
       if (e.clientY < 5 && !open) {
         setOpen(true);
+        events.exitIntentShown();
         localStorage.setItem(STORAGE_KEY, Date.now().toString());
       }
     };
@@ -60,8 +62,12 @@ export default function ExitIntent() {
           utm_campaign: "errores_fatales",
         }),
       });
-      if (res.ok) setStatus("success");
-      else setStatus("error");
+      if (res.ok) {
+        setStatus("success");
+        events.exitIntentSubscribed();
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }

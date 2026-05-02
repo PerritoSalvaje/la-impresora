@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { events } from "@/lib/amplitude";
 
 type Props = {
   source?: string;
@@ -23,6 +24,7 @@ export default function ArticleCTA({ source = "blog_inline", variant = "default"
     e.preventDefault();
     if (!email) return;
     setStatus("loading");
+    events.newsletterSignup(source, ref);
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
@@ -36,7 +38,11 @@ export default function ArticleCTA({ source = "blog_inline", variant = "default"
           utm_campaign: source,
         }),
       });
-      if (res.ok) { setStatus("success"); setEmail(""); }
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+        events.newsletterSignupSuccess(source, ref);
+      }
     } catch { setStatus("loading"); }
   }
 

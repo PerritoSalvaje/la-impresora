@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema as liArticleSchema, breadcrumbSchema as liBreadcrumbSchema } from "@/lib/schemas";
 
 const BASE_URL = "https://laimpresora.io";
 const ARTICLE_URL = `${BASE_URL}/blog/gap-ai-oportunidad`;
@@ -91,6 +93,23 @@ const relacionados = [
 export default function EdicionGapAI() {
   return (
     <div className="pt-24 min-h-screen">
+      <JsonLd
+        id="gap-ai-oportunidad-article"
+        data={[
+          liArticleSchema({
+            title: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo",
+            description: "Hay un estudio que muestra la diferencia entre lo que la AI puede hacer y lo que realmente se usa. Ese gap es la oportunidad más grande de la década. Te explicamos cómo aprovecharlo.",
+            slug: "gap-ai-oportunidad",
+            publishedAt: "2025-09-01",
+          }),
+          liBreadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "El gap que nadie ve: la AI puede hacer el 80% de tu trabajo", url: "/blog/gap-ai-oportunidad" },
+          ]),
+        ]}
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

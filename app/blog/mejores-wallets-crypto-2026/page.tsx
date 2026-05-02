@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Las mejores wallets de crypto en 2026: guía completa y comparativa",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="mejores-wallets-crypto-2026-article"
+        data={[
+          articleSchema({
+            title: "Las mejores wallets de crypto en 2026: guía completa y comparativa",
+            description: "Comparativa completa de las mejores wallets de crypto en 2026: MetaMask, Phantom, Trust Wallet, Ledger Nano X, Trezor Model T y Tangem. Precios, pros, contras y cuál elegir según tu situación.",
+            slug: "mejores-wallets-crypto-2026",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Las mejores wallets de crypto en 2026: guía completa y comparativa", url: "/blog/mejores-wallets-crypto-2026" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

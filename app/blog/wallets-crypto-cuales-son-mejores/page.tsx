@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Las mejores wallets de crypto en 2026: guía completa para LATAM",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="wallets-crypto-cuales-son-mejores-article"
+        data={[
+          articleSchema({
+            title: "Las mejores wallets de crypto en 2026: guía completa para LATAM",
+            description: "Guía completa de wallets crypto para 2026: MetaMask vs Trust Wallet vs Ledger vs Trezor, hot vs cold wallets, cómo proteger tu seed phrase y los errores fatales que hay que evitar.",
+            slug: "wallets-crypto-cuales-son-mejores",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Las mejores wallets de crypto en 2026: guía completa para LATAM", url: "/blog/wallets-crypto-cuales-son-mejores" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

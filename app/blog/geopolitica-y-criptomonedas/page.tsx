@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Geopolítica y crypto: cómo las guerras y sanciones mueven el mercado",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="geopolitica-y-criptomonedas-article"
+        data={[
+          articleSchema({
+            title: "Geopolítica y crypto: cómo las guerras y sanciones mueven el mercado",
+            description: "Cómo Rusia usó crypto para evadir sanciones, Bitcoin en El Salvador, el petrodólar y su relación con BTC, los BRICS y la desdolarización, y China y su amor/odio con crypto.",
+            slug: "geopolitica-y-criptomonedas",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Geopolítica y crypto: cómo las guerras y sanciones mueven el mercado", url: "/blog/geopolitica-y-criptomonedas" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

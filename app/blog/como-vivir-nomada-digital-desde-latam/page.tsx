@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Cómo ser nómada digital desde LATAM: la guía completa 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="como-vivir-nomada-digital-desde-latam-article"
+        data={[
+          articleSchema({
+            title: "Cómo ser nómada digital desde LATAM: la guía completa 2026",
+            description: "Qué es un nómada digital, los trabajos más comunes, países con visas especiales, cómo manejar ingresos con Wise y USDC, impuestos, seguros de salud y los mejores destinos para hispanohablantes.",
+            slug: "como-vivir-nomada-digital-desde-latam",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Cómo ser nómada digital desde LATAM: la guía completa 2026", url: "/blog/como-vivir-nomada-digital-desde-latam" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

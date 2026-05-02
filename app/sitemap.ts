@@ -37,6 +37,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.7,
   },
   {
+    url: `${BASE_URL}/recursos/dolarizar`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
+    url: `${BASE_URL}/guia`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.85,
+  },
+  {
     url: `${BASE_URL}/canal`,
     lastModified: new Date(),
     changeFrequency: "monthly",

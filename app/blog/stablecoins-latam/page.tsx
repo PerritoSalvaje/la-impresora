@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata = {
   title: "Stablecoins en LATAM: la guía completa para dolarizarte en 2026",
@@ -10,6 +12,23 @@ export const metadata = {
 export default function StablecoinsLatam() {
   return (
     <article className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="stablecoins-latam-article"
+        data={[
+          articleSchema({
+            title: "Stablecoins en LATAM: la guía completa para dolarizarte en 2026",
+            description: "Qué son las stablecoins, cuáles son las más seguras, cómo usarlas para dolarizar tus ahorros desde Argentina, México o Colombia. Guía práctica 2026.",
+            slug: "stablecoins-latam",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Stablecoins en LATAM: la guía completa para dolarizarte en 2026", url: "/blog/stablecoins-latam" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">

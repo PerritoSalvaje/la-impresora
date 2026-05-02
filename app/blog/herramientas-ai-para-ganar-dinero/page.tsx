@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Las mejores herramientas AI para ganar dinero en 2026",
@@ -125,6 +127,23 @@ const herramientas = [
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="herramientas-ai-para-ganar-dinero-article"
+        data={[
+          articleSchema({
+            title: "Las mejores herramientas AI para ganar dinero en 2026",
+            description: "8 herramientas de inteligencia artificial probadas para automatizar tu negocio, escalar como freelancer y generar ingresos reales en 2026.",
+            slug: "herramientas-ai-para-ganar-dinero",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Las mejores herramientas AI para ganar dinero en 2026", url: "/blog/herramientas-ai-para-ganar-dinero" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

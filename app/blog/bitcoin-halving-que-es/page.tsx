@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Bitcoin Halving: qué es, cuándo ocurre y por qué importa para tu inversión",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="bitcoin-halving-que-es-article"
+        data={[
+          articleSchema({
+            title: "Bitcoin Halving: qué es, cuándo ocurre y por qué importa para tu inversión",
+            description: "Todo sobre el Bitcoin Halving: la mecánica del evento cada 210,000 bloques, el historial de los 4 halvings con datos de precio, el halving de 2024 y cómo posicionarse inteligentemente.",
+            slug: "bitcoin-halving-que-es",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Bitcoin Halving: qué es, cuándo ocurre y por qué importa para tu in…", url: "/blog/bitcoin-halving-que-es" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

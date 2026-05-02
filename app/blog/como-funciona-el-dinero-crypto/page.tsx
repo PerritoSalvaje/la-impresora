@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Cómo funciona el dinero crypto: guía para principiantes",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="como-funciona-el-dinero-crypto-article"
+        data={[
+          articleSchema({
+            title: "Cómo funciona el dinero crypto: guía para principiantes",
+            description: "Explicación simple de cómo funciona el dinero crypto, qué es Bitcoin, cómo abrir una wallet y cómo comprar crypto en Argentina, México y LATAM desde poco dinero.",
+            slug: "como-funciona-el-dinero-crypto",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Cómo funciona el dinero crypto: guía para principiantes", url: "/blog/como-funciona-el-dinero-crypto" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

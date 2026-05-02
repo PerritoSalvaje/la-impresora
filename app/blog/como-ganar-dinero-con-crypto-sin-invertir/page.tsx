@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Cómo ganar dinero con crypto sin invertir dinero: 7 métodos reales",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="como-ganar-dinero-con-crypto-sin-invertir-article"
+        data={[
+          articleSchema({
+            title: "Cómo ganar dinero con crypto sin invertir dinero: 7 métodos reales",
+            description: "7 métodos reales para ganar criptomonedas sin poner dinero de tu bolsillo: airdrops, staking, bounties, learn-to-earn, mining con PC y más. Sin promesas vacías.",
+            slug: "como-ganar-dinero-con-crypto-sin-invertir",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Cómo ganar dinero con crypto sin invertir dinero: 7 métodos reales", url: "/blog/como-ganar-dinero-con-crypto-sin-invertir" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

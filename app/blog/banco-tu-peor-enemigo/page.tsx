@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Por qué tu banco es tu peor enemigo financiero (y qué hacer) | La Impresora #002",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function EdicionBancoEnemigo() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="banco-tu-peor-enemigo-article"
+        data={[
+          articleSchema({
+            title: "Por qué tu banco es tu peor enemigo financiero (y qué hacer) | La Impresora #002",
+            description: "Tu banco te cobra por guardar tu plata, te paga menos que la inflación y te pone límites para mover tu propio dinero. Esto es un sistema diseñado en tu contra. Te mostramos la salida.",
+            slug: "banco-tu-peor-enemigo",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Por qué tu banco es tu peor enemigo financiero (y qué hacer)", url: "/blog/banco-tu-peor-enemigo" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-2xl mx-auto">
 
         {/* Breadcrumb */}

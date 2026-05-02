@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Solana: qué es, cómo funciona y por qué es importante en 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="solana-que-es-como-funciona-article"
+        data={[
+          articleSchema({
+            title: "Solana: qué es, cómo funciona y por qué es importante en 2026",
+            description: "Guía completa de Solana en español: cómo funciona su consenso Proof of History, comparativa con Ethereum, proyectos del ecosistema, cómo comprar SOL y riesgos reales.",
+            slug: "solana-que-es-como-funciona",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Solana: qué es, cómo funciona y por qué es importante en 2026", url: "/blog/solana-que-es-como-funciona" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

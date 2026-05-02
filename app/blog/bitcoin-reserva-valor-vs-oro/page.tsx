@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Bitcoin como reserva de valor: ¿puede reemplazar al oro en 2026?",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="bitcoin-reserva-valor-vs-oro-article"
+        data={[
+          articleSchema({
+            title: "Bitcoin como reserva de valor: ¿puede reemplazar al oro en 2026?",
+            description: "El caso de Bitcoin vs oro como reserva de valor: historia del oro, qué hace similar a Bitcoin (escasez, portabilidad), Michael Saylor, El Salvador y cómo posicionarte como inversor.",
+            slug: "bitcoin-reserva-valor-vs-oro",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Bitcoin como reserva de valor: ¿puede reemplazar al oro en 2026?", url: "/blog/bitcoin-reserva-valor-vs-oro" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

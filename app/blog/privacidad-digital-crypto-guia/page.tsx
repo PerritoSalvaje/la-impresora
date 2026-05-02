@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Privacidad digital y crypto: cómo proteger tu identidad y tu dinero en 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="privacidad-digital-crypto-guia-article"
+        data={[
+          articleSchema({
+            title: "Privacidad digital y crypto: cómo proteger tu identidad y tu dinero en 2026",
+            description: "Por qué la privacidad importa en crypto, rastreo de wallets y blockchain analytics, VPNs, wallets de privacidad (Monero, Zcash), seguridad operacional, CBDCs y 1Password para exchanges.",
+            slug: "privacidad-digital-crypto-guia",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Privacidad digital y crypto: cómo proteger tu identidad y tu dinero…", url: "/blog/privacidad-digital-crypto-guia" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

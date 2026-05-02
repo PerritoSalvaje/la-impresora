@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Impuestos sobre crypto por país: Argentina, México, Colombia y España 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="impuestos-crypto-por-pais-article"
+        data={[
+          articleSchema({
+            title: "Impuestos sobre crypto por país: Argentina, México, Colombia y España 2026",
+            description: "Guía completa de impuestos crypto en Argentina (ARCA), México (SAT), Colombia (DIAN) y España (IRPF). Cuándo declarar, qué declarar y herramientas para llevar el registro.",
+            slug: "impuestos-crypto-por-pais",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Impuestos sobre crypto por país: Argentina, México, Colombia y Espa…", url: "/blog/impuestos-crypto-por-pais" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

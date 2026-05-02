@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Psicología del dinero: los sesgos que te hacen perder en crypto y finanzas",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="psicologia-del-dinero-sesgos-cognitivos-article"
+        data={[
+          articleSchema({
+            title: "Psicología del dinero: los sesgos que te hacen perder en crypto y finanzas",
+            description: "FOMO, FUD, sesgo de confirmación, mentalidad de manada y aversión a la pérdida. Los sesgos cognitivos que destruyen carteras y cómo combatirlos con sistemas predefinidos.",
+            slug: "psicologia-del-dinero-sesgos-cognitivos",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Psicología del dinero: los sesgos que te hacen perder en crypto y f…", url: "/blog/psicologia-del-dinero-sesgos-cognitivos" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

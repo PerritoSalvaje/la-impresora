@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Por qué necesitás una VPN para crypto: guía completa 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="como-usar-vpn-crypto-article"
+        data={[
+          articleSchema({
+            title: "Por qué necesitás una VPN para crypto: guía completa 2026",
+            description: "Por qué los exchanges bloquean IPs según el país, cómo funciona una VPN, comparativa de NordVPN vs ProtonVPN vs ExpressVPN y cómo configurarla correctamente para crypto.",
+            slug: "como-usar-vpn-crypto",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Por qué necesitás una VPN para crypto: guía completa 2026", url: "/blog/como-usar-vpn-crypto" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

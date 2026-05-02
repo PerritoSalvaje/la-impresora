@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata = {
   title: "Cómo armar un portafolio cripto con $500 en LATAM (guía 2026)",
@@ -10,6 +12,23 @@ export const metadata = {
 export default function PortafolioCripto500() {
   return (
     <article className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="portafolio-cripto-500-article"
+        data={[
+          articleSchema({
+            title: "Cómo armar un portafolio cripto con $500 en LATAM (guía 2026)",
+            description: "Paso a paso para construir tu primer portafolio de criptomonedas con $500 desde Argentina, México o Colombia. Qué comprar, cuánto, y por qué.",
+            slug: "portafolio-cripto-500",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Cómo armar un portafolio cripto con $500 en LATAM (guía 2026)", url: "/blog/portafolio-cripto-500" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">

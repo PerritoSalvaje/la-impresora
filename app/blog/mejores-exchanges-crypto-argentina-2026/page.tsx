@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Los mejores exchanges de criptomonedas en Argentina en 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="mejores-exchanges-crypto-argentina-2026-article"
+        data={[
+          articleSchema({
+            title: "Los mejores exchanges de criptomonedas en Argentina en 2026",
+            description: "Comparativa completa de Lemon vs Ripio vs Buenbit vs Binance vs Bybit para Argentina: comisiones reales, límites de operación, funciones y cuál usar según tu objetivo.",
+            slug: "mejores-exchanges-crypto-argentina-2026",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Los mejores exchanges de criptomonedas en Argentina en 2026", url: "/blog/mejores-exchanges-crypto-argentina-2026" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

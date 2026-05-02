@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Qué es DeFi: guía completa para principiantes en español 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="que-es-y-como-funciona-defi-article"
+        data={[
+          articleSchema({
+            title: "Qué es DeFi: guía completa para principiantes en español 2026",
+            description: "DeFi explicado sin jerga: cómo funcionan los protocolos descentralizados, Aave, Uniswap, yield farming, los riesgos reales, cómo empezar con $50 y las 5 reglas de oro.",
+            slug: "que-es-y-como-funciona-defi",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Qué es DeFi: guía completa para principiantes en español 2026", url: "/blog/que-es-y-como-funciona-defi" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

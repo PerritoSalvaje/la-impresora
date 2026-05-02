@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Qué es Bitcoin y cómo funciona: la guía más simple de 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="que-es-bitcoin-y-como-funciona-article"
+        data={[
+          articleSchema({
+            title: "Qué es Bitcoin y cómo funciona: la guía más simple de 2026",
+            description: "Guía definitiva de Bitcoin para principiantes: historia, cómo funciona la blockchain, cómo comprar Bitcoin en Argentina y LATAM, qué es una wallet y los riesgos reales.",
+            slug: "que-es-bitcoin-y-como-funciona",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Qué es Bitcoin y cómo funciona: la guía más simple de 2026", url: "/blog/que-es-bitcoin-y-como-funciona" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Las mejores herramientas para hacer trading de crypto en 2026",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="mejores-herramientas-trading-2026-article"
+        data={[
+          articleSchema({
+            title: "Las mejores herramientas para hacer trading de crypto en 2026",
+            description: "Guía completa de herramientas de trading crypto en 2026: TradingView, Glassnode, Nansen, CryptoQuant, Delta, CoinStats y Koinly para taxes. Precios, usos y comisiones de afiliado.",
+            slug: "mejores-herramientas-trading-2026",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Las mejores herramientas para hacer trading de crypto en 2026", url: "/blog/mejores-herramientas-trading-2026" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

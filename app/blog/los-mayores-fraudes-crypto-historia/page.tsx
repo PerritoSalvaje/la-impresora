@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Los mayores fraudes crypto de la historia: FTX, Luna, OneCoin y más",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="los-mayores-fraudes-crypto-historia-article"
+        data={[
+          articleSchema({
+            title: "Los mayores fraudes crypto de la historia: FTX, Luna, OneCoin y más",
+            description: "Historia completa de los 5 mayores fraudes crypto: OneCoin ($4B), Bitconnect ($3.4B), Luna/TerraUST ($40B), FTX ($8B) y Squid Game Token. Señales de alerta y cómo protegerte.",
+            slug: "los-mayores-fraudes-crypto-historia",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Los mayores fraudes crypto de la historia: FTX, Luna, OneCoin y más", url: "/blog/los-mayores-fraudes-crypto-historia" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Los mejores exchanges de crypto en 2026: ranking completo para hispanohablantes",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="mejores-exchanges-crypto-2026-article"
+        data={[
+          articleSchema({
+            title: "Los mejores exchanges de crypto en 2026: ranking completo para hispanohablantes",
+            description: "Ranking completo de los mejores exchanges de crypto en 2026: Bybit, Binance, Bitget, OKX, Kraken y los mejores exchanges locales por país. Comparativa de fees, KYC y disponibilidad.",
+            slug: "mejores-exchanges-crypto-2026",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Los mejores exchanges de crypto en 2026: ranking completo para hisp…", url: "/blog/mejores-exchanges-crypto-2026" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}

@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Newsletter from "@/components/Newsletter";
 import ArticleCTA from "@/components/ArticleCTA";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = {
   title: "Tokenización: cómo un campo en Paraguay puede ser tuyo con $50 | La Impresora #003",
@@ -18,6 +20,23 @@ export const metadata: Metadata = {
 export default function EdicionTokenizacion() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd
+        id="tokenizacion-campo-paraguay-article"
+        data={[
+          articleSchema({
+            title: "Tokenización: cómo un campo en Paraguay puede ser tuyo con $50 | La Impresora #003",
+            description: "La tokenización de activos reales permite que cualquier persona invierta en tierra, inmuebles o commodities con tickets mínimos. El acceso democratizado a la inversión real llegó a LATAM.",
+            slug: "tokenizacion-campo-paraguay",
+            publishedAt: "2025-09-01",
+          }),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: "Tokenización: cómo un campo en Paraguay puede ser tuyo con $50", url: "/blog/tokenizacion-campo-paraguay" },
+          ]),
+        ]}
+      />
+
       <div className="max-w-2xl mx-auto">
 
         {/* Breadcrumb */}

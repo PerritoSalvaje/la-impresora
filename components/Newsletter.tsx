@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { STATS, formatSubscribers } from "@/lib/stats";
 
 const BULLETS = [
   { icon: "✦", text: "Gratis" },
@@ -10,6 +11,15 @@ const BULLETS = [
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [ref, setRef] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const r = params.get("ref") || undefined;
+      if (r) setRef(r);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -19,7 +29,13 @@ export default function Newsletter() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          source: "home_hero",
+          ref,
+          utm_source: "site",
+          utm_medium: "organic",
+        }),
       });
       if (res.ok) {
         setStatus("success");
@@ -161,7 +177,7 @@ export default function Newsletter() {
               aria-hidden="true"
             />
             <span className="text-xs" style={{ color: "rgba(240,240,239,0.35)" }}>
-              2,412 lectores activos
+              {formatSubscribers(STATS.subscribers)} lectores activos
             </span>
           </div>
         </div>

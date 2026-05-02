@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Solana: qué es, cómo funciona y por qué es importante en 2026",
@@ -519,6 +520,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_solana"
+        hook="¿Más análisis de blockchains que importan?"
+      />
 
       <div className="mt-24">
         <Newsletter />

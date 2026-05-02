@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 const BASE_URL = "https://laimpresora.io";
 const ARTICLE_URL = `${BASE_URL}/blog/como-usar-chatgpt-ganar-dinero`;
@@ -451,7 +452,12 @@ export default function Page() {
 
         </div>
 
-        <div className="mt-24">
+        <ArticleCTA
+        source="blog_chatgpt_ganar_dinero"
+        hook="¿Más prompts y workflows AI para ganar plata?"
+      />
+
+      <div className="mt-24">
           <Newsletter />
         </div>
       </div>

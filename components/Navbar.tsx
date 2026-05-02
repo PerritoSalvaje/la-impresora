@@ -9,8 +9,8 @@ const NAV_LINKS = [
   { href: "/calculadoras", label: "Herramientas" },
   { href: "/comparativas", label: "Comparativas" },
   { href: "/tienda", label: "Tienda" },
-  { href: "/radar", label: "Radar" },
-  { href: "/agency", label: "Agency" },
+  { href: "/precios", label: "Precios" },
+  { href: "/referidos", label: "Referidos" },
 ];
 
 export default function Navbar() {

@@ -1,9 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function ArticleCTA() {
+type Props = {
+  source?: string;
+  variant?: "default" | "compact";
+  hook?: string;
+};
+
+export default function ArticleCTA({ source = "blog_inline", variant = "default", hook }: Props) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [ref, setRef] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const r = new URLSearchParams(window.location.search).get("ref");
+      if (r) setRef(r);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -13,7 +27,14 @@ export default function ArticleCTA() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          source,
+          ref,
+          utm_source: "blog",
+          utm_medium: "inline_cta",
+          utm_campaign: source,
+        }),
       });
       if (res.ok) { setStatus("success"); setEmail(""); }
     } catch { setStatus("loading"); }
@@ -32,7 +53,7 @@ export default function ArticleCTA() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex-1">
           <p className="font-display font-semibold text-base" style={{ color: "#f0f0ef", letterSpacing: "-0.01em" }}>
-            ¿Querés más análisis como este?
+            {hook || "¿Querés más análisis como este?"}
           </p>
           <p className="text-sm mt-1" style={{ color: "rgba(240,240,239,0.45)" }}>
             Cada jueves en tu email. Gratis. + PDF de bienvenida.

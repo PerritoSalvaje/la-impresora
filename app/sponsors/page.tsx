@@ -1,10 +1,10 @@
 export const metadata = {
   title: "Sponsors — La Impresora",
-  description: "Llegá a +2,400 hispanohablantes que leen sobre crypto, AI y finanzas digitales. Sponsoreá el newsletter o el canal de La Impresora.",
+  description: "Llegá a +2,412 hispanohablantes que leen sobre crypto, AI y finanzas digitales. Sponsoreá el newsletter o el canal de La Impresora.",
 };
 
 const stats = [
-  { numero: "2,400+", label: "Suscriptores activos", sub: "y creciendo cada semana" },
+  { numero: "2,412+", label: "Suscriptores activos", sub: "y creciendo cada semana" },
   { numero: "45%", label: "Open rate promedio", sub: "vs. 20% industria" },
   { numero: "71%", label: "Crypto activos", sub: "operan en exchanges reales" },
   { numero: "68%", label: "Rango 25–40 años", sub: "poder de decisión real" },
@@ -22,12 +22,12 @@ const paquetes = [
     nombre: "Newsletter",
     precio: "$300",
     por: "por edición",
-    descripcion: "Mención directa en nuestra edición semanal. Llegás a los 2,400+ suscriptores más activos de la comunidad.",
+    descripcion: "Mención directa en nuestra edición semanal. Llegás a los 2,412+ suscriptores más activos de la comunidad.",
     features: [
       "Mención destacada en el newsletter semanal",
       "Link a tu producto o servicio",
       "Incluido en el resumen de la semana",
-      "Reach estimado: 2,400+ suscriptores",
+      "Reach estimado: 2,412+ suscriptores",
       "Open rate del 45% (industria: 20%)",
     ],
     badge: null,

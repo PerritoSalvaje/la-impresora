@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Premium — La Impresora",
   description:
-    "El nivel siguiente de La Impresora. Acceso completo a análisis profundos, portafolio modelo, alertas y comunidad exclusiva por $19/mes.",
+    "El nivel siguiente de La Impresora. Acceso completo a análisis profundos, portafolio modelo, alertas y comunidad exclusiva por $9/mes ó $79/año.",
 };
 
 // ─── Datos ────────────────────────────────────────────────────────────────────
@@ -55,7 +55,7 @@ const TESTIMONIOS = [
     nombre: "Sebastián L.",
     cargo:  "Emprendedor · Argentina",
     cita:
-      "$19 al mes parece mucho hasta que hacés el cálculo. Las alertas de mercado me sacaron de una posición antes de que cayera 35%. El análisis del viernes pasado solo ya lo justificó.",
+      "$9 al mes es un café. Las alertas de mercado me sacaron de una posición antes de que cayera 35%. El análisis del viernes pasado solo ya lo justificó.",
   },
 ];
 
@@ -113,8 +113,8 @@ export default function PremiumPage() {
             {/* Precio destacado */}
             <div className="card p-8 shrink-0 min-w-[260px]">
               <p className="text-text-muted text-xs uppercase tracking-widest mb-3">Membresía mensual</p>
-              <div className="font-display font-bold text-[3.5rem] text-dorado leading-none mb-1">$19</div>
-              <p className="text-text-secondary text-sm mb-6">por mes · cancelá cuando querás</p>
+              <div className="font-display font-bold text-[3.5rem] text-dorado leading-none mb-1">$9</div>
+              <p className="text-text-secondary text-sm mb-6">por mes · ó $79/año (33% off)</p>
               <a href="#" className="btn-primary w-full justify-center">
                 Suscribirte ahora →
               </a>
@@ -183,7 +183,7 @@ export default function PremiumPage() {
               <div className="text-center text-text-muted text-sm flex items-center justify-center">Gratis</div>
               <div className="flex items-center justify-center">
                 <a href="#" className="btn-primary py-2 px-5 text-sm">
-                  $19/mes →
+                  $9/mes →
                 </a>
               </div>
             </div>
@@ -249,8 +249,8 @@ export default function PremiumPage() {
           <div className="card p-10 text-center">
             <span className="badge badge-dorado mb-6 inline-flex">Premium</span>
 
-            <div className="font-display font-bold text-[4rem] text-dorado leading-none mb-1">$19</div>
-            <p className="text-text-muted text-sm mb-8">por mes · cancelá cuando querás</p>
+            <div className="font-display font-bold text-[4rem] text-dorado leading-none mb-1">$9</div>
+            <p className="text-text-muted text-sm mb-8">por mes · ó $79/año · cancelá cuando querás</p>
 
             <ul className="text-left space-y-3 mb-8 max-w-xs mx-auto">
               {[

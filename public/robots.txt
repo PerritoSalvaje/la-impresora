@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
 Sitemap: https://laimpresora.io/sitemap.xml
+Sitemap: https://laimpresora.io/feed.xml

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Las mejores wallets de crypto en 2026: guía completa y comparativa",
@@ -685,6 +686,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_mejores_wallets_2026"
+        hook="¿Más tutoriales sobre custodia y seguridad crypto?"
+      />
 
       <div className="mt-24">
         <Newsletter />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Qué es Bitcoin y cómo funciona: la guía más simple de 2026",
@@ -667,6 +668,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_que_es_bitcoin"
+        hook="¿Querés aprender Bitcoin paso a paso desde cero?"
+      />
 
       <div className="mt-24">
         <Newsletter />

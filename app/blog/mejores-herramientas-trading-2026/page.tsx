@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Las mejores herramientas para hacer trading de crypto en 2026",
@@ -541,6 +542,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_herramientas_trading_2026"
+        hook="¿Más herramientas y comparativas crypto cada semana?"
+      />
 
       <div className="mt-24">
         <Newsletter />

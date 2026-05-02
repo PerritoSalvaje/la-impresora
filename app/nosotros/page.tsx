@@ -85,7 +85,7 @@ export default function NosotrosPage() {
         <div className="gradient-border rounded-2xl p-8 mb-16">
           <div className="grid grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-3xl font-black text-verde">2,400+</div>
+              <div className="text-3xl font-black text-verde">2,412+</div>
               <div className="text-white/40 text-sm mt-1">Suscriptores</div>
             </div>
             <div>

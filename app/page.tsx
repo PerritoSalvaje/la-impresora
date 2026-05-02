@@ -4,7 +4,7 @@ import Link from "next/link";
 /* ─── Data ──────────────────────────────────────────────────────────── */
 
 const stats = [
-  { numero: "2,400+", label: "Suscriptores activos", sub: "y creciendo" },
+  { numero: "2,412+", label: "Suscriptores activos", sub: "y creciendo" },
   { numero: "45%", label: "Tasa de apertura", sub: "vs 21% industria" },
   { numero: "30", label: "Ediciones publicadas", sub: "sin saltear una" },
   { numero: "0", label: "Artículos patrocinados", sub: "independencia editorial" },
@@ -259,7 +259,7 @@ export default function Home() {
 
               {/* Trust line */}
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                2,400+ lectores · Gratis · Un email por semana · Sin spam
+                2,412+ lectores · Gratis · Un email por semana · Sin spam
               </p>
             </div>
 

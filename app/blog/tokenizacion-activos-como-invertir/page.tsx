@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Tokenización de activos: invertí desde $50 en 2026",
@@ -386,6 +387,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_tokenizacion_invertir"
+        hook="¿Querés que te avise cuando aparece una nueva tokenización?"
+      />
 
       <div className="mt-24">
         <Newsletter />

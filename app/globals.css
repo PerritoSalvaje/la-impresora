@@ -227,3 +227,19 @@ main, nav, footer { position: relative; z-index: 1; }
 .prose-impresora strong { color: var(--text-primary); font-weight: 600; }
 .prose-impresora a { color: var(--verde); text-decoration: none; }
 .prose-impresora a:hover { text-decoration: underline; }
+
+/* ─── Lead magnet print styles (/guia) ──────────────────────────────── */
+@media print {
+  nav, footer, .no-print { display: none !important; }
+  .guia-print-root { padding-top: 0 !important; }
+  body { background: white !important; color: black !important; }
+  .print-section { page-break-inside: avoid; break-inside: avoid; }
+  .card {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    color: black !important;
+  }
+  .guia-print-root * { color: black !important; }
+  .guia-print-root .print-keep-color { color: inherit !important; }
+  a { text-decoration: underline; }
+}

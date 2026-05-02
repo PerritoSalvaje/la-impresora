@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Cómo declarar criptomonedas en Argentina 2026: guía completa ARCA",
@@ -502,6 +503,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_declarar_crypto_argentina"
+        hook="¿Más como esto sobre impuestos crypto en LATAM?"
+      />
 
       <div className="mt-24">
         <Newsletter />

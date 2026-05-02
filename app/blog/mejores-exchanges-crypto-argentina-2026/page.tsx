@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Los mejores exchanges de criptomonedas en Argentina en 2026",
@@ -482,6 +483,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_exchanges_argentina_2026"
+        hook="¿Querés saber qué exchange usar según tu situación AR?"
+      />
 
       <div className="mt-24">
         <Newsletter />

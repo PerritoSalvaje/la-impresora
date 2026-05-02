@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
+import ArticleCTA from "@/components/ArticleCTA";
 
 export const metadata: Metadata = {
   title: "Cómo ganar dinero con crypto sin invertir dinero: 7 métodos reales",
@@ -497,6 +498,11 @@ export default function Page() {
         </div>
 
       </div>
+
+      <ArticleCTA
+        source="blog_ganar_sin_invertir"
+        hook="¿Más estrategias para ganar crypto sin poner plata?"
+      />
 
       <div className="mt-24">
         <Newsletter />

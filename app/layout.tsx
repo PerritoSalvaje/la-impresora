@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsTicker from "@/components/NewsTicker";
 import AmplitudeProvider from "@/components/AmplitudeProvider";
+import ExitIntent from "@/components/ExitIntent";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { Suspense } from "react";
 
 const BASE_URL = "https://laimpresora.io";
@@ -206,6 +208,8 @@ export default function RootLayout({
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <ExitIntent />
+            <StickyMobileCTA />
           </AmplitudeProvider>
         </Suspense>
       </body>

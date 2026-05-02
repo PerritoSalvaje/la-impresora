@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { CHECKOUT } from "@/lib/products";
+import { STATS, formatSubscribers } from "@/lib/stats";
 
 // ─── Tipos ────────────────────────────────────────────────────────────────────
 
@@ -22,7 +24,7 @@ const NEWSLETTER = {
   nombre:       "Newsletter La Impresora",
   precio:       0,
   precioDisplay:"Gratuito",
-  desc:         "El newsletter semanal de crypto, AI y libertad financiera. Más de 12,000 lectores en LATAM. Sin spam, cancelás cuando querés.",
+  desc:         `El newsletter semanal de crypto, AI y libertad financiera. ${formatSubscribers(STATS.subscribers)} lectores en LATAM. Sin spam, cancelás cuando querés.`,
   link:         "/#newsletter",
   badge:        "Gratuito siempre",
   categoria:    "gratis" as Filtro,
@@ -37,25 +39,25 @@ const MICRO = [
     precioDisplay:"$0.99",
     desc:         "27 puntos clave para no caer en scams ni proyectos vacíos.",
     tag:          "Checklist",
-    link:         "#",
+    link:         CHECKOUT.checklist,
     categoria:    "micro" as Filtro,
   },
   {
-    nombre:       "Mini-guía Dolarización",
+    nombre:       "Mini-guía Dolarización LATAM",
     precio:       1.99,
     precioDisplay:"$1.99",
     desc:         "Stablecoins, exchanges y billeteras para Argentina, México y Colombia.",
     tag:          "Guía",
-    link:         "#",
+    link:         CHECKOUT.miniGuia,
     categoria:    "micro" as Filtro,
   },
   {
     nombre:       "Pack 30 Prompts AI",
-    precio:       2.99,
-    precioDisplay:"$2.99",
-    desc:         "Los prompts que usamos para automatizar contenido e investigar mercados.",
+    precio:       4.99,
+    precioDisplay:"$4.99",
+    desc:         "Los prompts que usamos a diario para contenido, research, finanzas y código. Notion + PDF.",
     tag:          "Prompts",
-    link:         "#",
+    link:         CHECKOUT.packPrompts,
     categoria:    "micro" as Filtro,
   },
 ];
@@ -69,7 +71,7 @@ const LIBROS = [
     precioDisplay:"$9.99",
     desc:         "Crypto, AI y tokenización desde cero. Sin jerga, con ejemplos reales de LATAM. 74 páginas accionables.",
     tag:          "Libro",
-    link:         "/libros",
+    link:         CHECKOUT.libroImpresora,
     categoria:    "libros" as Filtro,
   },
   {
@@ -78,7 +80,7 @@ const LIBROS = [
     precioDisplay:"$9.99",
     desc:         "Flujos de trabajo y casos reales de cómo usar IA para automatizar ingresos. 68 páginas sin relleno.",
     tag:          "Libro",
-    link:         "/libros",
+    link:         CHECKOUT.libroAi,
     categoria:    "libros" as Filtro,
   },
   {
@@ -87,17 +89,17 @@ const LIBROS = [
     precioDisplay:"$9.99",
     desc:         "Inmuebles, arte, commodities. Activos reales convertidos en tokens. 61 páginas directas.",
     tag:          "Libro",
-    link:         "/libros",
+    link:         CHECKOUT.libroTokenizacion,
     categoria:    "libros" as Filtro,
   },
   {
-    nombre:       "Pack 3 Libros",
-    precio:       24.99,
-    precioDisplay:"$24.99",
-    desc:         "La biblioteca completa de una vez. Ahorrás $5 respecto a comprarlos por separado.",
-    tag:          "Pack",
-    badge:        "Ahorrás $5",
-    link:         "/libros",
+    nombre:       "Pack 3 Libros + Bundle",
+    precio:       29,
+    precioDisplay:"$29",
+    desc:         "Los 3 libros + Pack 30 Prompts + 30 días de Telegram premium. Ahorrás $11 vs. comprar por separado.",
+    tag:          "Bundle",
+    badge:        "Ahorrás $11",
+    link:         CHECKOUT.bundleCompleto,
     categoria:    "libros" as Filtro,
   },
 ];
@@ -106,8 +108,8 @@ const LIBROS = [
 
 const PREMIUM = {
   nombre:       "Membresía Premium",
-  precio:       19,
-  precioDisplay:"$19 / mes",
+  precio:       9,
+  precioDisplay:"$9 / mes",
   desc:         "Newsletter exclusivo 2x por semana, análisis profundos de mercado, portafolio modelo, alertas y comunidad privada.",
   beneficios:   [
     "Newsletter exclusivo los viernes",

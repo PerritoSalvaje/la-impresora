@@ -9,42 +9,27 @@ export const metadata = {
   alternates: { canonical: "https://laimpresora.io/precios" },
 };
 
+// Orden estratégico: Academy primero como anchor caro ($247),
+// Premium segundo destacado (sweet spot $9.97), Supporter, Free al final.
+// Mover "$0" al final entrena al ojo a evaluar valor antes de defaultear a gratis.
 const TIERS = [
   {
-    id: "free",
-    nombre: "Free",
-    precio: "$0",
-    sub: "para siempre",
-    pitch: "Empezá acá. El newsletter, todos los artículos y todas las herramientas son gratis.",
-    cta: { label: "Suscribirme gratis →", href: "/#newsletter" },
+    id: "academy",
+    nombre: "Academy",
+    precio: "$247",
+    sub: "una vez · acceso de por vida (o 3 cuotas $97)",
+    pitch: "El curso completo: 6 módulos sobre crypto, AI, tokenización y libertad financiera.",
+    cta: { label: "Ver Academy →", href: "/academy" },
     incluye: [
-      "Newsletter cada jueves",
-      "Acceso a 28 artículos del blog",
-      "4 calculadoras (DCA, yield DeFi, inflación, portfolio)",
-      "Glosario de 200+ términos",
-      "RSS y archivo público",
+      "Curso de 6 módulos en video",
+      "PDFs descargables de cada módulo",
+      "Acceso vitalicio + actualizaciones",
+      "Comunidad privada de alumnos",
+      "Sesiones Q&A mensual con el equipo",
+      "Certificado de finalización",
+      "Garantía 30 días, sin preguntas",
     ],
-    badge: null,
-    destacado: false,
-  },
-  {
-    id: "supporter",
-    nombre: "Supporter",
-    precio: "$5+",
-    sub: "única vez",
-    pitch: "¿Querés apoyar lo que hacemos sin comprometerte a nada? Una donación única.",
-    cta: {
-      label: "Apoyar con $5 / $10 / $25 →",
-      href: "https://cafecito.app/laimpresora",
-      external: true,
-    },
-    incluye: [
-      "Todo lo del plan Free",
-      "Acceso a 3 ediciones premium archivadas",
-      "Tu nombre en la sección \"Made possible by\" del newsletter",
-      "Sin compromiso, sin renovación",
-    ],
-    badge: "Sin recurrencia",
+    badge: "Acceso vitalicio",
     destacado: false,
   },
   {
@@ -68,22 +53,40 @@ const TIERS = [
     destacado: true,
   },
   {
-    id: "academy",
-    nombre: "Academy",
-    precio: "$247",
-    sub: "una vez · acceso de por vida (3 cuotas $97)",
-    pitch: "El curso completo: 6 módulos sobre crypto, AI, tokenización y libertad financiera.",
-    cta: { label: "Ver Academy →", href: "/academy" },
+    id: "supporter",
+    nombre: "Supporter",
+    precio: "$5+",
+    sub: "única vez",
+    pitch: "¿Querés apoyar lo que hacemos sin comprometerte a nada? Una donación única.",
+    cta: {
+      label: "Apoyar con $5 / $10 / $25 →",
+      href: "https://cafecito.app/laimpresora",
+      external: true,
+    },
     incluye: [
-      "Curso de 6 módulos en video",
-      "PDFs descargables de cada módulo",
-      "Acceso vitalicio + actualizaciones",
-      "Comunidad privada de alumnos",
-      "Sesiones Q&A mensual con el equipo",
-      "Certificado de finalización",
-      "Garantía 30 días, sin preguntas",
+      "Todo lo del plan Free",
+      "Acceso a 3 ediciones premium archivadas",
+      "Tu nombre en la sección \"Made possible by\" del newsletter",
+      "Sin compromiso, sin renovación",
     ],
-    badge: "Acceso vitalicio",
+    badge: "Sin recurrencia",
+    destacado: false,
+  },
+  {
+    id: "free",
+    nombre: "Free",
+    precio: "$0",
+    sub: "para siempre",
+    pitch: "¿Recién empezás? Bienvenido. El newsletter y todas las herramientas son gratis.",
+    cta: { label: "Suscribirme gratis →", href: "/#newsletter" },
+    incluye: [
+      "Newsletter cada jueves",
+      "Acceso a 33 artículos del blog",
+      "4 calculadoras (DCA, yield DeFi, inflación, portfolio)",
+      "Glosario de 200+ términos",
+      "RSS y archivo público",
+    ],
+    badge: null,
     destacado: false,
   },
 ];
@@ -169,8 +172,8 @@ export default function PreciosPage() {
             Elegí cómo querés sumarte.
           </h1>
           <p className="text-text-secondary text-lg leading-relaxed max-w-2xl mx-auto">
-            Newsletter gratis para siempre. Premium para los que quieren ir más a fondo. Academy
-            para los que quieren aprender el sistema completo. Sin trampas, sin upsells agresivos.
+            Empezá por arriba si querés el sistema completo, o bajá hasta Free si recién arrancás.
+            Sin trampas, sin upsells agresivos. Garantía 30 días en todo lo pago.
           </p>
         </div>
       </section>

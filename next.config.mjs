@@ -1,8 +1,30 @@
 /** @type {import('next').NextConfig} */
+
+const CSP = [
+  "default-src 'self'",
+  // 'unsafe-inline' en script-src es necesario por JSON-LD inline. TODO: migrar a nonce per-request.
+  "script-src 'self' 'unsafe-inline' https://cdn.amplitude.com https://*.amplitude.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: https: blob:",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://api2.amplitude.com https://*.amplitude.com https://api.beehiiv.com https://api.lemonsqueezy.com https://api.telegram.org https://api-sec-vlc.hotmart.com https://developers.hotmart.com",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [{ protocol: "https", hostname: "**" }],
+    // Restringido a hosts específicos para prevenir SSRF vía next/image.
+    remotePatterns: [
+      { protocol: "https", hostname: "laimpresora.io" },
+      { protocol: "https", hostname: "la-impresora.vercel.app" },
+      { protocol: "https", hostname: "**.beehiiv.com" },
+      { protocol: "https", hostname: "**.amazonaws.com" },
+    ],
   },
   compress: true,
   poweredByHeader: false,
@@ -23,6 +45,10 @@ const nextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          { key: "Content-Security-Policy", value: CSP },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
+          { key: "X-DNS-Prefetch-Control", value: "off" },
         ],
       },
     ];

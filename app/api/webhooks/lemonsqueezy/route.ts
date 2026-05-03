@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
-import { createOneShotInviteLink, notifyAdmin } from "@/lib/telegram";
+import { createOneShotInviteLink, notifyAdmin, escapeMarkdownV2 as esc } from "@/lib/telegram";
 
 // LemonSqueezy webhook handler.
 // Configurar en LS Dashboard → Settings → Webhooks:
@@ -77,30 +77,28 @@ export async function POST(req: NextRequest) {
 
     if (isPremium) {
       const invite = await createOneShotInviteLink(name);
-      // Acá iría: enviar email al comprador con invite.invite_link
-      // Por ahora notificamos al admin para alta manual mientras Beehiiv/Resend no esté.
       await notifyAdmin(
-        `🎉 *Nuevo Premium* (LS)\n` +
-        `Email: \`${email}\`\n` +
-        `Producto: ${productName}\n` +
-        `Total: ${attrs?.total_formatted || "?"}\n` +
-        `Telegram invite: ${invite?.invite_link || "FAILED — crear manual"}`
+        `🎉 *Nuevo Premium* \\(LS\\)\n` +
+        `Email: \`${esc(email)}\`\n` +
+        `Producto: ${esc(productName)}\n` +
+        `Total: ${esc(attrs?.total_formatted || "?")}\n` +
+        `Invite: ${esc(invite?.invite_link || "FAILED — crear manual")}`
       );
     } else {
       await notifyAdmin(
-        `💰 *Nueva venta* (LS)\n` +
-        `Email: \`${email}\`\n` +
-        `Producto: ${productName}\n` +
-        `Total: ${attrs?.total_formatted || "?"}`
+        `💰 *Nueva venta* \\(LS\\)\n` +
+        `Email: \`${esc(email)}\`\n` +
+        `Producto: ${esc(productName)}\n` +
+        `Total: ${esc(attrs?.total_formatted || "?")}`
       );
     }
   }
 
   if (event === "subscription_cancelled" || event === "subscription_expired") {
     await notifyAdmin(
-      `⚠️ *Premium cancelado* (LS)\n` +
-      `Email: \`${email}\`\n` +
-      `Status: ${attrs?.status}\n` +
+      `⚠️ *Premium cancelado* \\(LS\\)\n` +
+      `Email: \`${esc(email)}\`\n` +
+      `Status: ${esc(attrs?.status || "")}\n` +
       `Acción: kickear de Telegram al fin del período pagado`
     );
   }

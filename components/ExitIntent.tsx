@@ -46,6 +46,43 @@ export default function ExitIntent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Focus trap + Escape + body scroll lock cuando el modal abre
+  useEffect(() => {
+    if (!open) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Tab") {
+        // Focus trap simple: si tab sale del modal, vuelve al input
+        const modal = document.getElementById("exit-modal");
+        if (!modal) return;
+        const focusable = modal.querySelectorAll<HTMLElement>(
+          'a, button, input, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+      previouslyFocused?.focus?.();
+    };
+  }, [open]);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
@@ -85,6 +122,7 @@ export default function ExitIntent() {
       aria-labelledby="exit-title"
     >
       <div
+        id="exit-modal"
         className="card p-8 max-w-md w-full relative"
         onClick={(e) => e.stopPropagation()}
         style={{ background: "#0f1011" }}

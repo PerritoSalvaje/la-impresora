@@ -89,6 +89,12 @@ export async function kickMember(userId: number): Promise<boolean> {
   }
 }
 
+// MarkdownV2 requiere escape de _ * [ ] ( ) ~ ` > # + - = | { } . !
+const MD_V2_ESCAPE = /[_*[\]()~`>#+\-=|{}.!]/g;
+export function escapeMarkdownV2(text: string): string {
+  return String(text ?? "").replace(MD_V2_ESCAPE, "\\$&");
+}
+
 export async function notifyAdmin(message: string): Promise<void> {
   const adminChatId = process.env.TELEGRAM_ADMIN_CHAT_ID;
   if (!BOT_TOKEN || !adminChatId) return;
@@ -100,7 +106,7 @@ export async function notifyAdmin(message: string): Promise<void> {
       body: JSON.stringify({
         chat_id: adminChatId,
         text: message,
-        parse_mode: "Markdown",
+        parse_mode: "MarkdownV2",
         disable_web_page_preview: true,
       }),
     });

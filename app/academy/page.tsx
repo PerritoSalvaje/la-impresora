@@ -1,3 +1,36 @@
+import { CHECKOUT } from "@/lib/products";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "La Impresora Academy — Crypto, AI y Finanzas Digitales",
+  description:
+    "6 módulos para entender el dinero real, generar ingresos en dólares y construir un sistema financiero propio.",
+  provider: {
+    "@type": "Organization",
+    name: "La Impresora",
+    sameAs: "https://laimpresora.io",
+  },
+  inLanguage: "es",
+  educationalLevel: "Beginner",
+  courseCode: "ACADEMY-LI-V1",
+  offers: {
+    "@type": "Offer",
+    price: "197",
+    priceCurrency: "USD",
+    category: "Paid",
+    availability: "https://schema.org/InStock",
+    url: "https://laimpresora.io/academy",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Online",
+    courseWorkload: "PT8H",
+  },
+};
+
 export const metadata = {
   title: "La Impresora Academy — Curso Completo de Crypto, AI y Finanzas Digitales",
   description:
@@ -23,7 +56,7 @@ const MODULOS = [
   },
   {
     numero:      "02",
-    titulo:      "Bitcoin y Crypto sin Bullshit",
+    titulo:      "Bitcoin y Crypto sin Vueltas",
     subtitulo:   "Las 5 criptos que importan y cómo comprar sin errores de principiante",
     descripcion:
       "Hay 20,000 criptomonedas. 95% son ruido. Este módulo te enseña a separar señal de basura: qué es Bitcoin realmente, cuáles son las otras 4 que vale la pena conocer, cómo comprar de forma segura desde cualquier país de LATAM y qué errores matan el dinero de los nuevos.",
@@ -180,6 +213,25 @@ const FAQS = [
 export default function AcademyPage() {
   return (
     <div className="pt-24 min-h-screen">
+      <JsonLd
+        id="academy-schemas"
+        data={[
+          courseSchema,
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.pregunta,
+              acceptedAnswer: { "@type": "Answer", text: f.respuesta },
+            })),
+          },
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Academy", url: "/academy" },
+          ]),
+        ]}
+      />
 
       {/* ── Hero ── */}
       <section className="px-6 py-20">
@@ -208,7 +260,7 @@ export default function AcademyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <a href="#" className="btn-primary">
+              <a href={CHECKOUT.academy} className="btn-primary">
                 Entrar al curso — $197 →
               </a>
               <a href="#modulos" className="btn-secondary text-center text-sm py-2.5">
@@ -459,7 +511,7 @@ export default function AcademyPage() {
               ))}
             </ul>
 
-            <a href="#" className="btn-primary w-full justify-center text-base mb-4">
+            <a href={CHECKOUT.academy} className="btn-primary w-full justify-center text-base mb-4">
               Entrar al curso — $197 →
             </a>
 
@@ -476,7 +528,7 @@ export default function AcademyPage() {
       {/* ── CTA sticky mobile ── */}
       <div className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-3 md:hidden"
            style={{ background: "linear-gradient(to top, var(--bg) 70%, transparent)" }}>
-        <a href="#" className="btn-primary w-full justify-center">
+        <a href={CHECKOUT.academy} className="btn-primary w-full justify-center">
           Entrar al curso — $197 →
         </a>
       </div>

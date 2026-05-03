@@ -57,8 +57,8 @@ export default function Page() {
             Airdrops 2026: cómo cazarlos desde LATAM
           </h1>
           <p className="text-text-secondary text-lg leading-relaxed">
-            Honesta: la mayoría de los que cazan airdrops pierden plata neta. Esta guía es para
-            que no te pase a vos. Qué buscar, qué evitar, las 5 oportunidades que valen.
+            La mayoría de los que cazan airdrops pierden plata neta. Esta guía es para que no te
+            pase a vos. Qué buscar, qué evitar, las 5 oportunidades que valen.
           </p>
         </div>
 

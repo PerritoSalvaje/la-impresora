@@ -91,8 +91,8 @@ const FAQS = [
     a: "Automático. En cuanto alcanzás el tier, te llega un email con el acceso. Si es físico (sticker, libro firmado), se envía dentro de los 30 días.",
   },
   {
-    q: "¿Puedo refer a mi propio email alternativo?",
-    a: "No. El sistema detecta IPs duplicadas y emails sospechosos. Pero podés refer a familiares, amigos, colegas — todos suman.",
+    q: "¿Puedo referirme a mí mismo con otro email?",
+    a: "No. El sistema detecta IPs duplicadas y emails sospechosos. Pero podés referir a familiares, amigos y colegas — todos suman.",
   },
 ];
 

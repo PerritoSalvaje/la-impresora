@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkRate, getClientIp, isAllowedOrigin } from "@/lib/rate-limit";
 
 // Fallback persistente: si Beehiiv aún no está conectado, los emails se
 // guardan en KV (Vercel KV o Upstash) o se reportan vía webhook a un canal
@@ -30,10 +31,46 @@ async function persistFallback(email: string, source: string, ref?: string) {
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json().catch(() => ({}));
-  const { email, source = "website", utm_source, utm_medium, utm_campaign, ref } = body;
+  // 1. Origin allowlist
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ error: "origin not allowed" }, { status: 403 });
+  }
 
-  if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  // 2. Rate limit por IP — 5 req/min, 30 req/hora
+  const ip = getClientIp(req);
+  const rateMin = checkRate(`sub:min:${ip}`, 5, 60_000);
+  const rateHour = checkRate(`sub:hour:${ip}`, 30, 60 * 60_000);
+  if (!rateMin.ok || !rateHour.ok) {
+    const reset = Math.ceil(((rateMin.ok ? rateHour.resetAt : rateMin.resetAt) - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: "Demasiados intentos. Probá en un momento." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(Math.max(reset, 1)) },
+      }
+    );
+  }
+
+  const body = await req.json().catch(() => ({}));
+  const {
+    email,
+    source = "website",
+    utm_source,
+    utm_medium,
+    utm_campaign,
+    ref,
+    website, // 3. Honeypot — bots tienden a llenarlo
+  } = body;
+
+  // 3. Honeypot: si llenaron el campo "website", es bot. Devolvemos 200 fake
+  // para no revelar la trampa, pero no procesamos.
+  if (website) {
+    console.log("[subscribe] honeypot triggered ip=", ip);
+    return NextResponse.json({ ok: true, provider: "honeypot" }, { status: 200 });
+  }
+
+  // 4. Validación email
+  if (!email || typeof email !== "string" || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "Email inválido" }, { status: 400 });
   }
 

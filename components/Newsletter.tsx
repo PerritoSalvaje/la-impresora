@@ -63,7 +63,7 @@ export default function Newsletter() {
         >
           {/* Badge */}
           <span className="badge badge-verde mb-6 inline-flex">
-            🎁 Regalo de bienvenida
+            Bonus de bienvenida
           </span>
 
           {/* Headline */}
@@ -106,6 +106,8 @@ export default function Newsletter() {
           {/* Form / success */}
           {status === "success" ? (
             <div
+              role="status"
+              aria-live="polite"
               className="rounded-xl px-5 py-4"
               style={{
                 background: "rgba(0,230,118,0.05)",
@@ -125,26 +127,36 @@ export default function Newsletter() {
                 onSubmit={handleSubmit}
                 className="flex flex-col sm:flex-row gap-2"
               >
+                <label htmlFor="nl-email" className="sr-only">
+                  Tu email para suscribirse
+                </label>
+                {/* Honeypot — escondido, solo bots lo llenan */}
                 <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="sr-only"
+                  aria-hidden="true"
+                />
+                <input
+                  id="nl-email"
                   type="email"
+                  inputMode="email"
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@email.com"
                   required
-                  className="flex-1 text-sm px-4 py-3 rounded-[10px] focus:outline-none transition-colors"
+                  aria-label="Tu email"
+                  aria-invalid={status === "error"}
+                  aria-describedby={status === "error" ? "nl-error" : undefined}
+                  className="flex-1 text-sm px-4 py-3 rounded-[10px] transition-colors"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(255,255,255,0.09)",
                     color: "#f0f0ef",
                   }}
-                  onFocus={(e) =>
-                    ((e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(0,230,118,0.3)")
-                  }
-                  onBlur={(e) =>
-                    ((e.currentTarget as HTMLElement).style.borderColor =
-                      "rgba(255,255,255,0.09)")
-                  }
                 />
                 <button
                   type="submit"
@@ -157,12 +169,12 @@ export default function Newsletter() {
                     opacity: status === "loading" ? 0.6 : 1,
                   }}
                 >
-                  {status === "loading" ? "Enviando..." : "Suscribirme →"}
+                  {status === "loading" ? "Enviando..." : "Mandame el PDF gratis →"}
                 </button>
               </form>
 
               {status === "error" && (
-                <p className="text-xs mt-2" style={{ color: "#f87171" }}>
+                <p id="nl-error" role="alert" className="text-xs mt-2" style={{ color: "#f87171" }}>
                   Algo salió mal. Intentá de nuevo.
                 </p>
               )}

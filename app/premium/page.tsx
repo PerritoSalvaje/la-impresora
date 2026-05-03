@@ -1,3 +1,7 @@
+import { CHECKOUT } from "@/lib/products";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/schemas";
+
 export const metadata = {
   title: "Premium — La Impresora",
   description:
@@ -55,7 +59,7 @@ const TESTIMONIOS = [
     nombre: "Sebastián L.",
     cargo:  "Emprendedor · Argentina",
     cita:
-      "$9 al mes es un café. Las alertas de mercado me sacaron de una posición antes de que cayera 35%. El análisis del viernes pasado solo ya lo justificó.",
+      "Las alertas de mercado me sacaron de una posición antes de que cayera 35%. Solo con eso ya recuperé los $9/mes de los próximos 3 años.",
   },
 ];
 
@@ -92,6 +96,46 @@ const FAQS = [
 export default function PremiumPage() {
   return (
     <div className="pt-24 min-h-screen">
+      <JsonLd
+        id="premium-schemas"
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: "La Impresora Premium",
+            description:
+              "Membresía premium con análisis profundos, portafolio modelo, alertas y comunidad privada.",
+            brand: { "@type": "Brand", name: "La Impresora" },
+            offers: {
+              "@type": "Offer",
+              price: "9",
+              priceCurrency: "USD",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price: "9",
+                priceCurrency: "USD",
+                billingDuration: "P1M",
+                unitText: "MONTH",
+              },
+              availability: "https://schema.org/InStock",
+              url: "https://laimpresora.io/premium",
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.pregunta,
+              acceptedAnswer: { "@type": "Answer", text: f.respuesta },
+            })),
+          },
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Premium", url: "/premium" },
+          ]),
+        ]}
+      />
 
       {/* ── Hero ── */}
       <section className="px-6 py-20">
@@ -115,7 +159,7 @@ export default function PremiumPage() {
               <p className="text-text-muted text-xs uppercase tracking-widest mb-3">Membresía mensual</p>
               <div className="font-display font-bold text-[3.5rem] text-dorado leading-none mb-1">$9</div>
               <p className="text-text-secondary text-sm mb-6">por mes · ó $79/año (33% off)</p>
-              <a href="#" className="btn-primary w-full justify-center">
+              <a href={CHECKOUT.premiumMensual} className="btn-primary w-full justify-center">
                 Suscribirte ahora →
               </a>
               <p className="text-text-muted text-xs mt-3 text-center">
@@ -182,7 +226,7 @@ export default function PremiumPage() {
               <div className="col-span-1 text-text-muted text-sm flex items-center">Precio mensual</div>
               <div className="text-center text-text-muted text-sm flex items-center justify-center">Gratis</div>
               <div className="flex items-center justify-center">
-                <a href="#" className="btn-primary py-2 px-5 text-sm">
+                <a href={CHECKOUT.premiumMensual} className="btn-primary py-2 px-5 text-sm">
                   $9/mes →
                 </a>
               </div>
@@ -268,7 +312,7 @@ export default function PremiumPage() {
               ))}
             </ul>
 
-            <a href="#" className="btn-primary w-full justify-center text-base mb-4">
+            <a href={CHECKOUT.premiumMensual} className="btn-primary w-full justify-center text-base mb-4">
               Suscribirte ahora →
             </a>
 

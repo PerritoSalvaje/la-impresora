@@ -81,9 +81,17 @@ async function listHotmartActiveSubscriptions(): Promise<string[]> {
 
 export async function GET(req: NextRequest) {
   const cronSecret = process.env.CRON_SECRET;
-  const auth = req.headers.get("authorization");
 
-  if (cronSecret && auth !== `Bearer ${cronSecret}`) {
+  // Sin secret en prod → endpoint bloqueado (no abierto al público)
+  if (!cronSecret) {
+    return NextResponse.json(
+      { error: "CRON_SECRET not configured" },
+      { status: 503 }
+    );
+  }
+
+  const auth = req.headers.get("authorization");
+  if (auth !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

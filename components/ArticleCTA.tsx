@@ -48,7 +48,7 @@ export default function ArticleCTA({ source = "blog_inline", variant = "default"
 
   if (status === "success") {
     return (
-      <div className="my-8 rounded-xl px-5 py-4" style={{ background: "rgba(0,230,118,0.05)", border: "1px solid rgba(0,230,118,0.15)" }}>
+      <div role="status" aria-live="polite" className="my-8 rounded-xl px-5 py-4" style={{ background: "rgba(0,230,118,0.05)", border: "1px solid rgba(0,230,118,0.15)" }}>
         <p className="text-sm font-semibold" style={{ color: "#00e676" }}>¡Listo! Revisá tu email para confirmar.</p>
       </div>
     );
@@ -66,13 +66,26 @@ export default function ArticleCTA({ source = "blog_inline", variant = "default"
           </p>
         </div>
         <form onSubmit={handleSubmit} className="flex gap-2 sm:shrink-0">
+          <label htmlFor={`cta-${source}`} className="sr-only">Email</label>
           <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            className="sr-only"
+            aria-hidden="true"
+          />
+          <input
+            id={`cta-${source}`}
             type="email"
+            inputMode="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@email.com"
             required
-            className="text-sm px-3 py-2.5 rounded-[8px] w-44 focus:outline-none"
+            aria-label="Email"
+            className="text-sm px-3 py-2.5 rounded-[8px] flex-1 sm:w-44"
             style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)", color: "#f0f0ef" }}
           />
           <button

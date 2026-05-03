@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createOneShotInviteLink, notifyAdmin } from "@/lib/telegram";
+import { createOneShotInviteLink, notifyAdmin, escapeMarkdownV2 as esc } from "@/lib/telegram";
 
 // Hotmart webhook handler.
 // Configurar en Hotmart → Tools → Webhook (Postback 2.0):
@@ -77,21 +77,27 @@ export async function POST(req: NextRequest) {
       const invite = await createOneShotInviteLink(name);
       await notifyAdmin(
         `🎉 *Nueva venta Hotmart*\n` +
-        `Email: \`${email}\`\n` +
-        `Producto: ${productName}\n` +
-        `Precio: ${priceValue} ${priceCurr}\n` +
-        `Telegram: ${invite?.invite_link || "—"}`
+        `Email: \`${esc(email)}\`\n` +
+        `Producto: ${esc(productName)}\n` +
+        `Precio: ${esc(String(priceValue))} ${esc(priceCurr)}\n` +
+        `Telegram: ${esc(invite?.invite_link || "—")}`
       );
     } else {
       await notifyAdmin(
-        `💰 *Venta Hotmart*\nEmail: \`${email}\`\nProducto: ${productName}\nPrecio: ${priceValue} ${priceCurr}`
+        `💰 *Venta Hotmart*\n` +
+        `Email: \`${esc(email)}\`\n` +
+        `Producto: ${esc(productName)}\n` +
+        `Precio: ${esc(String(priceValue))} ${esc(priceCurr)}`
       );
     }
   }
 
   if (event === "PURCHASE_CANCELED" || event === "SUBSCRIPTION_CANCELLATION") {
     await notifyAdmin(
-      `⚠️ *Cancelación Hotmart*\nEmail: \`${email}\`\nProducto: ${productName}\nStatus: ${status}`
+      `⚠️ *Cancelación Hotmart*\n` +
+      `Email: \`${esc(email)}\`\n` +
+      `Producto: ${esc(productName)}\n` +
+      `Status: ${esc(status || "")}`
     );
   }
 

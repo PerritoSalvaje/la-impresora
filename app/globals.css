@@ -228,6 +228,84 @@ main, nav, footer { position: relative; z-index: 1; }
 .prose-impresora a { color: var(--verde); text-decoration: none; }
 .prose-impresora a:hover { text-decoration: underline; }
 
+/* ─── Accessibility ─────────────────────────────────────────────────── */
+
+/* Focus indicators visibles para teclado (WCAG 2.4.7) */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Skip-to-content link (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  padding: 10px 16px;
+  background: var(--verde);
+  color: var(--bg, #08090a);
+  font-weight: 700;
+  border-radius: 8px;
+  z-index: 999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Screen-reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile: prevent iOS input zoom (font-size ≥16px) */
+@media (max-width: 768px) {
+  input[type="email"],
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+/* Anchor scroll offset por nav fijo */
+:target {
+  scroll-margin-top: 120px;
+}
+
+/* Tap feedback en cards (mobile) */
+@media (hover: none) {
+  .card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Hide scrollbar utility (mobile horizontal scrollers) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ─── Lead magnet print styles (/guia) ──────────────────────────────── */
 @media print {
   nav, footer, .no-print { display: none !important; }

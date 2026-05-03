@@ -121,7 +121,7 @@ export default function RadarPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#"
+              href="/precios"
               className="bg-verde text-oscuro font-black px-10 py-5 rounded-full hover:bg-verde/90 transition-colors verde-glow text-lg"
             >
               Suscribirte al Radar — $25/mes →
@@ -328,7 +328,7 @@ export default function RadarPage() {
               <li className="flex gap-2"><span className="text-verde">✓</span> Canal Telegram privado</li>
             </ul>
             <a
-              href="#"
+              href="/precios"
               className="block bg-verde text-oscuro font-black px-10 py-5 rounded-full hover:bg-verde/90 transition-colors verde-glow text-lg mb-4"
             >
               Suscribirte al Radar →

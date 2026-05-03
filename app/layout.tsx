@@ -51,14 +51,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
     languages: {
-      "es-AR": BASE_URL,
-      "es-MX": BASE_URL,
-      "es-CO": BASE_URL,
-      "es-CL": BASE_URL,
-      "es-PE": BASE_URL,
-      "es-UY": BASE_URL,
-      "es-VE": BASE_URL,
-      "es-ES": BASE_URL,
+      // Hreflang real: solo declaramos las variantes que tienen URL distinto.
+      // Hoy todo el contenido es es-AR. Cuando lancemos /mx /co se agregan acá.
       "es": BASE_URL,
       "x-default": BASE_URL,
     },
@@ -89,14 +83,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@laimpresora_io",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
+  // Icons generados dinámicamente vía app/icon.tsx + app/apple-icon.tsx
   verification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION }
     : undefined,
@@ -166,7 +153,7 @@ const newsMediaOrganizationSchema = {
   ethicsPolicy: `${BASE_URL}/nosotros`,
   actionableFeedbackPolicy: `${BASE_URL}/nosotros`,
   correctionsPolicy: `${BASE_URL}/nosotros`,
-  noBylinesPolicy: `${BASE_URL}/nosotros`,
+  // noBylinesPolicy removido: declarar "no firmamos" sabotea EEAT
   verificationFactCheckingPolicy: `${BASE_URL}/nosotros`,
   foundingDate: "2023",
   areaServed: ["AR", "MX", "CO", "CL", "UY", "PY"],
@@ -211,11 +198,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-oscuro text-white antialiased">
+        <a href="#contenido" className="skip-link">Saltar al contenido</a>
         <Suspense>
           <AmplitudeProvider>
             <NewsTicker />
             <Navbar />
-            <main>{children}</main>
+            <main id="contenido" tabIndex={-1}>{children}</main>
             <Footer />
             <ExitIntent />
             <StickyMobileCTA />

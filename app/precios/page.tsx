@@ -1,4 +1,6 @@
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { faqSchema, breadcrumbSchema } from "@/lib/schemas";
 
 export const metadata = {
   title: "Precios — Free, Premium $9, Academy $197",
@@ -145,6 +147,16 @@ const FAQS = [
 export default function PreciosPage() {
   return (
     <div className="pt-24 min-h-screen">
+      <JsonLd
+        id="precios-faq"
+        data={[
+          faqSchema(FAQS.map((f) => ({ question: f.pregunta, answer: f.respuesta }))),
+          breadcrumbSchema([
+            { name: "Inicio", url: "/" },
+            { name: "Precios", url: "/precios" },
+          ]),
+        ]}
+      />
       <section className="px-6 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <span className="section-label block mb-5">Precios</span>

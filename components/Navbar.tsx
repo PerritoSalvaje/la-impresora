@@ -74,12 +74,14 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <button
-          className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
+          className="md:hidden flex items-center justify-center w-11 h-11 rounded-lg transition-colors"
           style={{ color: "rgba(240,240,239,0.5)", background: "transparent", border: "none", cursor: "pointer" }}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             {open ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -91,6 +93,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-menu"
+        hidden={!open}
         className="md:hidden overflow-hidden transition-all duration-200"
         style={{
           maxHeight: open ? "320px" : "0px",

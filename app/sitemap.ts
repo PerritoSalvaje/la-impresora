@@ -55,6 +55,12 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.1,
   },
   {
+    url: `${BASE_URL}/confirmacion`,
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.1,
+  },
+  {
     url: `${BASE_URL}/guia`,
     lastModified: new Date(),
     changeFrequency: "monthly",

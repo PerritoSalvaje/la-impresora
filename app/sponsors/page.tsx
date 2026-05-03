@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Sponsors — La Impresora",
-  description: "Llegá a +2,412 hispanohablantes que leen sobre crypto, AI y finanzas digitales. Sponsoreá el newsletter o el canal de La Impresora.",
+  description: "Llegá a +2,412 hispanohablantes que leen sobre crypto, AI y finanzas digitales. Sponsoreá el newsletter o el canal de La Impresora. Q1 2026.",
 };
 
 const stats = [
@@ -157,7 +157,7 @@ export default function SponsorsPage() {
               </div>
             ))}
             <p className="text-white/20 text-xs pt-2 border-t border-white/5">
-              Datos basados en encuesta a suscriptores activos — Q1 2025. N = 420 respuestas.
+              Datos basados en encuesta a 420 suscriptores activos · Q1 2026.
             </p>
           </div>
         </div>

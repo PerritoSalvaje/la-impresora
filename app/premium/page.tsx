@@ -157,8 +157,8 @@ export default function PremiumPage() {
             {/* Precio destacado */}
             <div className="card p-8 shrink-0 min-w-[260px]">
               <p className="text-text-muted text-xs uppercase tracking-widest mb-3">Membresía mensual</p>
-              <div className="font-display font-bold text-[3.5rem] text-dorado leading-none mb-1">$9</div>
-              <p className="text-text-secondary text-sm mb-6">por mes · ó $79/año (33% off)</p>
+              <div className="font-display font-bold text-[3.5rem] text-dorado leading-none mb-1">$9.97</div>
+              <p className="text-text-secondary text-sm mb-6">por mes · ó $87/año (27% off)</p>
               <a href={CHECKOUT.premiumMensual} className="btn-primary w-full justify-center">
                 Suscribirte ahora →
               </a>
@@ -227,7 +227,7 @@ export default function PremiumPage() {
               <div className="text-center text-text-muted text-sm flex items-center justify-center">Gratis</div>
               <div className="flex items-center justify-center">
                 <a href={CHECKOUT.premiumMensual} className="btn-primary py-2 px-5 text-sm">
-                  $9/mes →
+                  $9.97/mes →
                 </a>
               </div>
             </div>
@@ -293,8 +293,8 @@ export default function PremiumPage() {
           <div className="card p-10 text-center">
             <span className="badge badge-dorado mb-6 inline-flex">Premium</span>
 
-            <div className="font-display font-bold text-[4rem] text-dorado leading-none mb-1">$9</div>
-            <p className="text-text-muted text-sm mb-8">por mes · ó $79/año · cancelá cuando querás</p>
+            <div className="font-display font-bold text-[4rem] text-dorado leading-none mb-1">$9.97</div>
+            <p className="text-text-muted text-sm mb-8">por mes · ó $87/año · cancelá cuando querás</p>
 
             <ul className="text-left space-y-3 mb-8 max-w-xs mx-auto">
               {[

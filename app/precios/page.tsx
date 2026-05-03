@@ -50,8 +50,8 @@ const TIERS = [
   {
     id: "premium",
     nombre: "Premium",
-    precio: "$9",
-    sub: "por mes · o $79/año (33% OFF)",
+    precio: "$9.97",
+    sub: "por mes · o $87/año (27% OFF)",
     pitch: "Para los que quieren ir más a fondo. Análisis profundos, comunidad y alertas.",
     cta: { label: "Probar Premium →", href: "/premium" },
     incluye: [
@@ -70,8 +70,8 @@ const TIERS = [
   {
     id: "academy",
     nombre: "Academy",
-    precio: "$197",
-    sub: "una vez · acceso de por vida",
+    precio: "$247",
+    sub: "una vez · acceso de por vida (3 cuotas $97)",
     pitch: "El curso completo: 6 módulos sobre crypto, AI, tokenización y libertad financiera.",
     cta: { label: "Ver Academy →", href: "/academy" },
     incluye: [
@@ -135,7 +135,12 @@ const FAQS = [
   {
     pregunta: "¿Hay descuentos por pagar el año completo?",
     respuesta:
-      "Sí. Premium anual cuesta $79/año en lugar de $108 ($9 × 12) — eso es 33% de descuento. Equivale a $6.58/mes.",
+      "Sí. Premium anual cuesta $87/año en lugar de $119.64 ($9.97 × 12) — eso es 27% de descuento. Equivale a $7.25/mes.",
+  },
+  {
+    pregunta: "¿Existe una opción Lifetime?",
+    respuesta:
+      "Sí — Founders Lifetime $297 una vez. Premium para siempre + acceso anticipado a toda nueva funcionalidad + sesión 1:1 30min con el equipo. Cap 100 plazas, después se cierra.",
   },
   {
     pregunta: "¿Qué métodos de pago aceptan?",
@@ -291,8 +296,8 @@ export default function PreciosPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { titulo: "3 libros (PDF + EPUB)", precio: "$14.99", desc: "La Impresora · Tokenización · AI para ganar plata", href: "/tienda" },
-              { titulo: "Pack 30 prompts AI", precio: "$4.99", desc: "Para emprendedores LATAM. Notion + PDF.", href: "/tienda" },
-              { titulo: "Bundle completo", precio: "$29", desc: "Los 3 libros + 30 prompts + 30 días Telegram premium", href: "/tienda" },
+              { titulo: "Bundle completo", precio: "$27", desc: "Los 3 libros + 30 prompts + 30 días Telegram premium", href: "/tienda" },
+              { titulo: "Bundle Plus", precio: "$47", desc: "Bundle + 60 días Telegram + Guía Inversor 24p + 1 video walkthrough", href: "/tienda" },
             ].map((p) => (
               <Link key={p.titulo} href={p.href} className="card p-6 hover:bg-white/5 transition-colors">
                 <p className="font-display font-bold text-dorado text-2xl mb-2">{p.precio}</p>

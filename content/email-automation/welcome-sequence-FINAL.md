@@ -19,7 +19,7 @@ Antes, 60 segundos de contexto.
 
 La Impresora es un newsletter sobre cómo funciona el dinero digital — crypto, AI, tokenización, finanzas. Para hispanohablantes en LATAM que no quieren depender de bancos que se les van a la mierda ni de gurúes que les venden cursos de $497.
 
-Cada jueves a las 9am, te llega una edición. Sin spam, sin "secretos del inversor", sin emojis para llenar.
+Cada jueves a las 9am, te llega una edición. Sin relleno, sin "secretos del inversor", sin emojis para llenar.
 
 Si en algún momento no te sirve, te vas con un click. Lo prometo.
 
@@ -154,7 +154,7 @@ PD: tu link de referidos ya está activo. Si conocés a alguien al que le sirve 
 
 ## EMAIL 5 — Día 9 — Soft pitch micro-producto
 **Subject:** Lo que tengo en el portapapeles todos los días
-**Preview:** 30 prompts que uso para AI. Cuestan $4.99.
+**Preview:** 30 prompts que uso para AI
 
 ```
 Cosa rápida.
@@ -163,15 +163,11 @@ Llevo 18 meses usando AI todos los días — para escribir, investigar, programa
 
 Armé un pack: 30 prompts que uso a diario. Por categoría: contenido, productividad, finanzas, research, programación. Listos para copiar y pegar en Claude/ChatGPT/Gemini.
 
-Está $4.99 → laimpresora.io/tienda
-
-Por qué $4.99 y no gratis: porque lo que es gratis se descarga y no se usa. Pagar $5 te obliga a probarlo. Y los $5 cubren mantenerlo actualizado (cuando cambia un modelo, los prompts también).
-
-Si no te interesa, ignorá este email. No te voy a mandar 5 más insistiendo.
-
-Mañana volvemos al tema cripto.
+Si no te interesa AI todavía, ignorá este email. Mañana volvemos al tema cripto.
 
 La Impresora
+
+PD: el pack está acá → laimpresora.io/tienda. Pagar lo poco que cuesta hace que lo uses (lo gratis se descarga y se olvida). Y mantengo los prompts actualizados cuando cambian los modelos.
 ```
 
 ---
@@ -217,7 +213,7 @@ Llevamos 14 días, recibiste 6 emails y dos newsletters semanales. Si seguís ac
 
 Hay una capa más. La parte que no entra en el newsletter gratuito porque es muy específica, muy contextual, o cambia muy rápido:
 
-Premium ($9/mes ó $79/año, 33% off):
+Premium ($9.97/mes ó $87/año, ahorrás $33):
 
 → Newsletter de los viernes — análisis profundo de UNA oportunidad concreta esa semana, con tesis, riesgo y plan de acción
 → Portafolio modelo actualizado mensual (cómo está distribuido y por qué)
@@ -226,7 +222,7 @@ Premium ($9/mes ó $79/año, 33% off):
 → Q&A en vivo una vez al mes
 → 30% off en libros y curso
 
-¿Por qué $9 y no $19? Porque el sweet spot LATAM es $9 — al precio donde la decisión es "barato, lo pruebo" y no "lo pienso".
+¿Por qué $9.97 y no $19? Porque el sweet spot LATAM es ~$10 — al precio donde la decisión es "barato, lo pruebo" y no "lo pienso".
 
 ¿Garantía? 30 días, cero preguntas. Cancelás con un click.
 

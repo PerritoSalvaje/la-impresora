@@ -8,7 +8,7 @@ import ExitIntent from "@/components/ExitIntent";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { Suspense } from "react";
 
-const BASE_URL = "https://laimpresora.io";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://laimpresora.io";
 
 export const viewport: Viewport = {
   themeColor: "#00FF85",

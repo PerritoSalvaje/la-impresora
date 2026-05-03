@@ -85,7 +85,7 @@ export default function DolarizacionCalc() {
             id="dol-pais"
             value={pais}
             onChange={(e) => setPais(e.target.value as PaisCode)}
-            className="w-full text-sm px-3 py-2.5 rounded-[8px] focus:outline-none"
+            className="w-full text-sm px-3 py-2.5 rounded-[8px]"
             style={{
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.09)",
@@ -106,10 +106,11 @@ export default function DolarizacionCalc() {
           <input
             id="dol-monto"
             type="number"
+            inputMode="numeric"
             min={1000}
             value={monto}
             onChange={(e) => setMonto(Math.max(1000, Number(e.target.value) || 0))}
-            className="w-full text-sm px-3 py-2.5 rounded-[8px] focus:outline-none"
+            className="w-full text-sm px-3 py-2.5 rounded-[8px]"
             style={{
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.09)",
@@ -124,11 +125,12 @@ export default function DolarizacionCalc() {
           <input
             id="dol-meses"
             type="number"
+            inputMode="numeric"
             min={1}
             max={120}
             value={meses}
             onChange={(e) => setMeses(Math.max(1, Math.min(120, Number(e.target.value) || 1)))}
-            className="w-full text-sm px-3 py-2.5 rounded-[8px] focus:outline-none"
+            className="w-full text-sm px-3 py-2.5 rounded-[8px]"
             style={{
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.09)",
@@ -168,13 +170,18 @@ export default function DolarizacionCalc() {
           </p>
 
           <form onSubmit={handleUnlock} className="flex flex-col sm:flex-row gap-2">
+            <label htmlFor="dol-email" className="sr-only">Email</label>
             <input
+              id="dol-email"
               type="email"
+              inputMode="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="tu@email.com"
               required
-              className="flex-1 text-sm px-3 py-2.5 rounded-[8px] focus:outline-none"
+              aria-label="Email"
+              className="flex-1 text-sm px-3 py-2.5 rounded-[8px]"
               style={{
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.09)",

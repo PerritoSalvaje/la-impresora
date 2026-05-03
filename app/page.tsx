@@ -226,7 +226,7 @@ export default function Home() {
 
               {/* Headline */}
               <h1
-                className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.04] tracking-tight mb-6"
+                className="font-display text-4xl md:text-6xl xl:text-7xl font-bold leading-[1.04] tracking-tight mb-6"
                 style={{ letterSpacing: "-0.03em" }}
               >
                 La Impresora
@@ -247,15 +247,15 @@ export default function Home() {
                 que quiera entender hacia dónde va el dinero.
               </p>
 
-              {/* Buttons */}
-              <div className="flex flex-wrap gap-3 mb-8">
+              {/* CTA único — el secundario se quitó porque competía y mataba conversión */}
+              <div className="mb-3">
                 <a href="#newsletter" className="btn-primary">
                   Suscribite gratis →
                 </a>
-                <Link href="/blog" className="btn-secondary">
-                  Leer el blog
-                </Link>
               </div>
+              <Link href="/blog" className="text-sm hover:text-verde transition-colors mb-8 inline-block" style={{ color: "var(--text-muted)" }}>
+                o leé el blog →
+              </Link>
 
               {/* Trust line */}
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>

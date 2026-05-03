@@ -66,6 +66,11 @@ const nextConfig = {
         destination: "/blog/como-declarar-crypto-argentina",
         permanent: true,
       },
+      {
+        source: "/blog/wallets-crypto-cuales-son-mejores",
+        destination: "/blog/mejores-wallets-crypto-2026",
+        permanent: true,
+      },
     ];
   },
 };

@@ -77,7 +77,7 @@ export default function Page() {
           </ul>
 
           <h2>Desglose de costos reales 2026</h2>
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto"><table className="w-full text-sm">
             <thead>
               <tr><th>Item</th><th>Costo</th></tr>
             </thead>
@@ -93,7 +93,7 @@ export default function Page() {
                 <td><strong className="text-verde">{total}</strong></td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>Pasos concretos (3-6 meses)</h2>
           <ol>

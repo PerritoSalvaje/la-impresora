@@ -147,9 +147,9 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="flex flex-col gap-5">
             {/* Logo */}
-            <Link href="/" style={{ textDecoration: "none" }}>
+            <Link href="/" style={{ textDecoration: "none" }} aria-label="La Impresora — inicio">
               <span className="font-display font-bold text-base" style={{ color: "#f0f0ef" }}>
-                🖨️ La Impresora
+                La Impresora
               </span>
             </Link>
 

@@ -1,6 +1,40 @@
+import JsonLd from "@/components/JsonLd";
+
 export const metadata = {
   title: "Nosotros — La Impresora",
-  description: "La Impresora es el newsletter semanal sobre crypto, AI y libertad financiera para hispanohablantes. Sin bullshit. Sin jerga. Solo lo que importa.",
+  description: "La Impresora es el newsletter semanal sobre crypto, AI y libertad financiera para hispanohablantes. Sin gurúes. Sin jerga. Solo lo que importa.",
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ignacio",
+  alternateName: "La Impresora",
+  jobTitle: "Founder & Editor",
+  worksFor: {
+    "@type": "NewsMediaOrganization",
+    name: "La Impresora",
+    url: "https://laimpresora.io",
+  },
+  url: "https://laimpresora.io/nosotros",
+  sameAs: [
+    "https://twitter.com/laimpresora_io",
+    "https://instagram.com/laimpresora.io",
+  ],
+  knowsAbout: [
+    "Bitcoin",
+    "Criptomonedas",
+    "DeFi",
+    "Tokenización de activos",
+    "Inteligencia Artificial aplicada",
+    "Mercados financieros LATAM",
+    "Stablecoins",
+    "Custodia crypto",
+    "Operativa cambiaria Argentina",
+  ],
+  knowsLanguage: ["es"],
+  description:
+    "Editor de La Impresora — newsletter sobre crypto, AI y finanzas digitales para LATAM. Background en infra cripto y operativa multi-país.",
 };
 
 const valores = [
@@ -29,6 +63,7 @@ const valores = [
 export default function NosotrosPage() {
   return (
     <div className="pt-24 min-h-screen px-6">
+      <JsonLd id="nosotros-person" data={personSchema} />
       <div className="max-w-3xl mx-auto">
 
         <div className="mb-16">

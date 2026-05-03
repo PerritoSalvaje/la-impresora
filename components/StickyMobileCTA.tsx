@@ -18,10 +18,25 @@ export default function StickyMobileCTA() {
     if (!isMobile) return;
 
     let trackedShown = false;
+
+    // Hide cuando el form Newsletter es visible (no compitan)
+    const newsletterEl = document.getElementById("newsletter");
+    let newsletterVisible = false;
+    let observer: IntersectionObserver | null = null;
+    if (newsletterEl && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          newsletterVisible = entry.isIntersecting;
+          if (newsletterVisible) setShow(false);
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(newsletterEl);
+    }
+
     const onScroll = () => {
-      // Aparece después de scrollear 30% del documento
       const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      if (scrolled > 0.3) {
+      if (scrolled > 0.3 && !newsletterVisible) {
         setShow(true);
         if (!trackedShown) {
           events.stickyMobileShown();
@@ -31,7 +46,10 @@ export default function StickyMobileCTA() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observer?.disconnect();
+    };
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -91,13 +109,18 @@ export default function StickyMobileCTA() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex items-center gap-2">
+          <label htmlFor="sticky-email" className="sr-only">Email</label>
           <input
+            id="sticky-email"
             type="email"
+            inputMode="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Recibí La Impresora gratis"
             required
-            className="flex-1 text-sm px-3 py-2.5 rounded-[8px] focus:outline-none"
+            aria-label="Email para suscribirse"
+            className="flex-1 text-sm px-3 py-2.5 rounded-[8px]"
             style={{
               background: "rgba(255,255,255,0.06)",
               border: "1px solid rgba(255,255,255,0.1)",

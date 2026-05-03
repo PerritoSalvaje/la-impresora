@@ -18,7 +18,7 @@ export default function NewsTicker() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] overflow-hidden"
+      className="hidden md:block fixed top-0 left-0 right-0 z-[60] overflow-hidden"
       style={{ backgroundColor: "#021a0e", borderBottom: "1px solid rgba(0,255,135,0.15)" }}
     >
       <div className="flex items-center h-7">

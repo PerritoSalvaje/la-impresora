@@ -133,11 +133,14 @@ export default function ReferidosForm() {
       <input
         id="ref-email"
         type="email"
+        inputMode="email"
+        autoComplete="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="tu@email.com"
         required
-        className="w-full text-sm px-4 py-3 rounded-[10px] focus:outline-none transition-colors mb-4"
+        aria-label="Email"
+        className="w-full text-sm px-4 py-3 rounded-[10px] transition-colors mb-4"
         style={{
           background: "rgba(255,255,255,0.04)",
           border: "1px solid rgba(255,255,255,0.09)",

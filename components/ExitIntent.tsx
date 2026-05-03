@@ -148,7 +148,7 @@ export default function ExitIntent() {
           </div>
         ) : (
           <>
-            <span className="badge badge-dorado inline-flex mb-4">⚠ Antes de irte</span>
+            <span className="badge badge-dorado inline-flex mb-4">Una cosa más</span>
             <h3 id="exit-title" className="font-display font-bold text-text-primary text-xl leading-tight mb-3">
               Los 5 errores que te cuestan plata en crypto
             </h3>
@@ -158,14 +158,19 @@ export default function ExitIntent() {
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+              <label htmlFor="exit-email" className="sr-only">Email</label>
               <input
+                id="exit-email"
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
                 required
                 autoFocus
-                className="text-sm px-4 py-3 rounded-[10px] focus:outline-none"
+                aria-label="Email"
+                className="text-sm px-4 py-3 rounded-[10px]"
                 style={{
                   background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.09)",

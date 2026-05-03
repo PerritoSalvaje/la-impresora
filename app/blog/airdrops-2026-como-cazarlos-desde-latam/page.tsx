@@ -88,7 +88,7 @@ export default function Page() {
           </ol>
 
           <h2>Top 5 oportunidades 2026 (estimación)</h2>
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto"><table className="w-full text-sm">
             <thead>
               <tr><th>Proyecto</th><th>Chain</th><th>Probabilidad</th><th>Costo entrada</th></tr>
             </thead>
@@ -102,7 +102,7 @@ export default function Page() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
 
           <h2>Si vas a hacerlo, regla de oro</h2>
           <p>
